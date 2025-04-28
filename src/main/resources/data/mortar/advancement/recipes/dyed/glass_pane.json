@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:glass_pane"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/maroon_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/scarlet_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/amber_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/pear_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/pine_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/slate_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/lavender_stained_glass_pane_from_glass_pane",
+      "mortar:crafting_table/salmon_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

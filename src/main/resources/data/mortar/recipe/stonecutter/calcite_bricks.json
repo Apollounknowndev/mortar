@@ -1,12 +1,8 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": [
-    {
-      "item": "minecraft:calcite"
-    },
-    {
-      "item": "mortar:polished_calcite"
-    }
+    "minecraft:calcite",
+    "mortar:polished_calcite"
   ],
   "result": {
     "id": "mortar:calcite_bricks"

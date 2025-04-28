@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mortar:block/pine_concrete_powder"
+      },
+      {
+        "model": "mortar:block/pine_concrete_powder",
+        "y": 90
+      },
+      {
+        "model": "mortar:block/pine_concrete_powder",
+        "y": 180
+      },
+      {
+        "model": "mortar:block/pine_concrete_powder",
+        "y": 270
+      }
+    ]
+  }
+}

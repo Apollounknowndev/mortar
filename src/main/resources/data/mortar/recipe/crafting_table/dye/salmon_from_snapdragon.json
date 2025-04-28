@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "salmon_dye",
+  "ingredients": [
+    "mortar:snapdragon"
+  ],
+  "result": {
+    "id": "mortar:salmon_dye",
+    "count": 2
+  }
+}

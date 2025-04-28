@@ -1,15 +1,9 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": [
-    {
-      "item": "minecraft:andesite"
-    },
-    {
-      "item": "minecraft:polished_andesite"
-    },
-    {
-      "item": "mortar:andesite_bricks"
-    }
+    "minecraft:andesite",
+    "minecraft:polished_andesite",
+    "mortar:andesite_bricks"
   ],
   "result": {
     "id": "mortar:andesite_brick_slab",

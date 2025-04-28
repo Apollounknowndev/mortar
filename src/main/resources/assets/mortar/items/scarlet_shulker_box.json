@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "mortar:item/scarlet_shulker_box",
+    "model": {
+      "type": "minecraft:shulker_box",
+      "texture": "mortar:scarlet"
+    }
+  }
+}

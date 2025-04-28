@@ -1,12 +1,15 @@
 {
   "schemaVersion": 1,
   "id": "mortar",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "name": "Mortar",
-  "description": "Adding missing vanilla block variants and smoothly integrating them into the game!",
+  "description": "A relatively lightweight building mod that aims to fix some of the gaps in the vanilla block sets.",
   "authors": [
     "Apollo",
-    "DawnKiro"
+    "DawnKiro (Texture Artist)",
+    "Ekansh (Texture Artist)",
+    "skxlor (Texture Artist)",
+    "bebebea_loste (Texture Artist)"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/mortar"
@@ -17,14 +20,18 @@
   "entrypoints": {
     "main": [
       "dev.worldgen.mortar.Mortar"
+    ],
+    "client": [
+      "dev.worldgen.mortar.MortarClient"
     ]
   },
   "mixins": [
     "mortar.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15",
-    "minecraft": ">=1.21",
-    "fabric-api": "*"
+    "fabricloader": ">=0.16",
+    "minecraft": ">=1.21.5",
+    "fabric-api": "*",
+    "lithostitched": "*"
   }
 }

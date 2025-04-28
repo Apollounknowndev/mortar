@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "mortar:item/salmon_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "mortar:salmon"
+    }
+  }
+}

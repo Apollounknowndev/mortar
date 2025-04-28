@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "mortar:item/slate_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "mortar:slate"
+    }
+  }
+}

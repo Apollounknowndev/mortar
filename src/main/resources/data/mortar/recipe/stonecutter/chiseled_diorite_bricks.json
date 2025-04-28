@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+    "minecraft:diorite",
+    "minecraft:polished_diorite",
+    "mortar:diorite_bricks"
+  ],
+  "result": {
+    "id": "mortar:chiseled_diorite_bricks"
+  }
+}

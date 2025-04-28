@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/maroon_terracotta",
+      "mortar:crafting_table/scarlet_terracotta",
+      "mortar:crafting_table/amber_terracotta",
+      "mortar:crafting_table/pear_terracotta",
+      "mortar:crafting_table/pine_terracotta",
+      "mortar:crafting_table/slate_terracotta",
+      "mortar:crafting_table/lavender_terracotta",
+      "mortar:crafting_table/salmon_terracotta"
+    ]
+  }
+}

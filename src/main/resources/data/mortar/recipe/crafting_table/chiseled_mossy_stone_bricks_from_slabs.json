@@ -3,9 +3,7 @@
   "group": "mortar:chiseled_mossy_stone_bricks",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:mossy_stone_brick_slab"
-    }
+    "#": "minecraft:mossy_stone_brick_slab"
   },
   "pattern": [
     "#",

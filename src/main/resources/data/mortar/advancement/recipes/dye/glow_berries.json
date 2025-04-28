@@ -1,0 +1,23 @@
+
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_item": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:glow_berries"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "mortar:crafting_table/dye/amber_from_glow_berries"
+        ]
+    }
+}

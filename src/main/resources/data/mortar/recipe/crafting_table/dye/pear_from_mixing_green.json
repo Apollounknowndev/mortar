@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pear_dye",
+  "ingredients": [
+    "minecraft:green_dye",
+    "minecraft:white_dye",
+    "minecraft:white_dye"
+  ],
+  "result": {
+    "count": 3,
+    "id": "mortar:pear_dye"
+  }
+}

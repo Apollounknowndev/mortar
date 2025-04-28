@@ -1,0 +1,8 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:village/taiga/houses",
+    "minecraft:village/taiga/zombie/houses"
+  ],
+  "processor_list": "mortar:village_taiga"
+}

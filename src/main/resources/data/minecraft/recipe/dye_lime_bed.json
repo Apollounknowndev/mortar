@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "building",
+  "group": "bed",
+  "input": "#minecraft:beds",
+  "material": "minecraft:lime_dye",
+  "result": "minecraft:lime_bed"
+}

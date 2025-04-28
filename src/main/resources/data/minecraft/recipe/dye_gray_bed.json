@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "building",
+  "group": "bed",
+  "input": "#minecraft:beds",
+  "material": "minecraft:gray_dye",
+  "result": "minecraft:gray_bed"
+}

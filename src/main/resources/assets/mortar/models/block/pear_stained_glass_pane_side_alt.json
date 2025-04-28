@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "textures": {
+    "edge": "mortar:block/pear_stained_glass_pane_top",
+    "pane": "mortar:block/pear_stained_glass"
+  }
+}

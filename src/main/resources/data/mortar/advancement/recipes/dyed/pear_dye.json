@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:pear_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_pear_bed",
+      "mortar:crafting_table/dye_pear_carpet",
+      "mortar:crafting_table/dye_pear_wool",
+      "mortar:crafting_table/pear_bundle",
+      "mortar:crafting_table/pear_candle",
+      "mortar:crafting_table/pear_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

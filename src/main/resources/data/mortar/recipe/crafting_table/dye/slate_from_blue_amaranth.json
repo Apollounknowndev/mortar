@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "slate_dye",
+  "ingredients": [
+    "mortar:blue_amaranth"
+  ],
+  "result": {
+    "id": "mortar:slate_dye"
+  }
+}

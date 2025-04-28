@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:shulker_boxes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/maroon_shulker_box",
+      "mortar:crafting_table/scarlet_shulker_box",
+      "mortar:crafting_table/amber_shulker_box",
+      "mortar:crafting_table/pear_shulker_box",
+      "mortar:crafting_table/pine_shulker_box",
+      "mortar:crafting_table/slate_shulker_box",
+      "mortar:crafting_table/lavender_shulker_box",
+      "mortar:crafting_table/salmon_shulker_box"
+    ]
+  }
+}

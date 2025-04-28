@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pine_dye",
+  "ingredients": [
+    "minecraft:large_fern"
+  ],
+  "result": {
+    "id": "mortar:pine_dye",
+    "count": 2
+  }
+}

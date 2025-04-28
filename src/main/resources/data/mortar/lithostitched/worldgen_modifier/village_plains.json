@@ -1,0 +1,9 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:village/plains/houses",
+    "minecraft:village/plains/town_centers",
+    "minecraft:village/plains/zombie/houses"
+  ],
+  "processor_list": "mortar:village_plains"
+}

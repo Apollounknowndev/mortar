@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "building",
+  "group": "wool",
+  "input": "#minecraft:wool",
+  "material": "minecraft:cyan_dye",
+  "result": "minecraft:cyan_wool"
+}

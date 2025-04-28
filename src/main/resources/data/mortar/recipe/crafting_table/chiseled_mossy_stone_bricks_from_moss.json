@@ -3,12 +3,8 @@
   "group": "mortar:chiseled_mossy_stone_bricks",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:chiseled_stone_bricks"
-    },
-    {
-      "item": "minecraft:moss_block"
-    }
+    "minecraft:chiseled_stone_bricks",
+    "minecraft:moss_block"
   ],
   "result": {
     "id": "mortar:chiseled_mossy_stone_bricks"

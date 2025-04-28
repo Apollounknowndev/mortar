@@ -1,0 +1,23 @@
+
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_item": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:honeycomb"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "rewards": {
+        "recipes": [
+            "mortar:crafting_table/dye/amber_from_honeycomb"
+        ]
+    }
+}

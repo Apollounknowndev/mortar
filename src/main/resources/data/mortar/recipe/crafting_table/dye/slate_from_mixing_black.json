@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "slate_dye",
+  "ingredients": [
+    "minecraft:blue_dye",
+    "minecraft:blue_dye",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "count": 3,
+    "id": "mortar:slate_dye"
+  }
+}

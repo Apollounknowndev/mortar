@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mortar:block/scarlet_concrete_powder"
+      },
+      {
+        "model": "mortar:block/scarlet_concrete_powder",
+        "y": 90
+      },
+      {
+        "model": "mortar:block/scarlet_concrete_powder",
+        "y": 180
+      },
+      {
+        "model": "mortar:block/scarlet_concrete_powder",
+        "y": 270
+      }
+    ]
+  }
+}

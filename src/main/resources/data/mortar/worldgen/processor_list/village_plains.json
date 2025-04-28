@@ -1,0 +1,22 @@
+{
+  "processors": [
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": "per_piece",
+      "if_true": {
+        "type": "lithostitched:random_chance",
+        "chance": 0.3
+      },
+      "then": [
+        {
+          "processor_type": "lithostitched:block_swap",
+          "blocks": {
+            "minecraft:yellow_bed": "mortar:amber_bed",
+            "minecraft:yellow_carpet": "mortar:amber_carpet",
+            "minecraft:yellow_wool": "mortar:amber_wool"
+          }
+        }
+      ]
+    }
+  ]
+}

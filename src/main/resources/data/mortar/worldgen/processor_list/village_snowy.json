@@ -1,0 +1,21 @@
+{
+  "processors": [
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": "per_piece",
+      "if_true": {
+        "type": "lithostitched:random_chance",
+        "chance": 0.3
+      },
+      "then": [
+        {
+          "processor_type": "lithostitched:block_swap",
+          "blocks": {
+            "minecraft:blue_bed": "mortar:lavender_bed",
+            "minecraft:blue_carpet": "mortar:lavender_carpet"
+          }
+        }
+      ]
+    }
+  ]
+}

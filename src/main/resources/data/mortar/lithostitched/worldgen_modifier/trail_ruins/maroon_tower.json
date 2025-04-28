@@ -1,0 +1,30 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:trail_ruins/tower",
+    "minecraft:trail_ruins/tower/tower_top"
+  ],
+  "locations": [
+    "minecraft:trail_ruins/tower/tower_5",
+    "minecraft:trail_ruins/tower/tower_top_5"
+  ],
+  "processor_list": [
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": "per_block",
+      "if_true": {
+        "type": "lithostitched:matching_blocks",
+        "blocks": "minecraft:red_terracotta"
+      },
+      "then": {
+        "processor_type": "lithostitched:set_block",
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "mortar:maroon_terracotta"
+          }
+        }
+      }
+    }
+  ]
+}

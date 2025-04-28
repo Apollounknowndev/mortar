@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "scarlet_dye",
+  "ingredients": [
+    "minecraft:resin_clump"
+  ],
+  "result": {
+    "id": "mortar:scarlet_dye"
+  }
+}

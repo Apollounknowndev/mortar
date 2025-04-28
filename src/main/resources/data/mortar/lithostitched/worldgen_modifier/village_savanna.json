@@ -1,0 +1,8 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:village/savanna/houses",
+    "minecraft:village/savanna/zombie/houses"
+  ],
+  "processor_list": "mortar:village_savanna"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+    "minecraft:granite",
+    "minecraft:polished_granite",
+    "mortar:granite_bricks"
+  ],
+  "result": {
+    "id": "mortar:chiseled_granite_bricks"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:lavender_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_lavender_bed",
+      "mortar:crafting_table/dye_lavender_carpet",
+      "mortar:crafting_table/dye_lavender_wool",
+      "mortar:crafting_table/lavender_bundle",
+      "mortar:crafting_table/lavender_candle",
+      "mortar:crafting_table/lavender_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "mortar:block/snapdragon_bottom"
+    },
+    "half=upper": {
+      "model": "mortar:block/snapdragon_top"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mortar:block/maroon_glazed_terracotta",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "mortar:block/maroon_glazed_terracotta",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "mortar:block/maroon_glazed_terracotta"
+    },
+    "facing=west": {
+      "model": "mortar:block/maroon_glazed_terracotta",
+      "y": 90
+    }
+  }
+}

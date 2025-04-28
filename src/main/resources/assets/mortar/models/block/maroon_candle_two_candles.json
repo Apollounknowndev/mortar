@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_two_candles",
+  "textures": {
+    "all": "mortar:block/maroon_candle",
+    "particle": "mortar:block/maroon_candle"
+  }
+}

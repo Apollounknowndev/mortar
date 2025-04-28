@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:dark_prismarine"
-  },
+  "ingredient": "minecraft:dark_prismarine",
   "result": {
     "id": "mortar:dark_prismarine_wall"
   }

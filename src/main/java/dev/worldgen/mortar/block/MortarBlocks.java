@@ -1,141 +1,117 @@
 package dev.worldgen.mortar.block;
 
 import dev.worldgen.mortar.Mortar;
+import dev.worldgen.mortar.block.set.DyedBlockSet;
+import dev.worldgen.mortar.block.set.GenericSet;
+import dev.worldgen.mortar.mixin.integration.PointOfInterestTypesAccessor;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WallBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.enums.BedPart;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.world.poi.PointOfInterestType;
+import net.minecraft.world.poi.PointOfInterestTypes;
+
+import java.util.List;
+import java.util.Map;
+
+import static dev.worldgen.mortar.block.MortarBlockUtils.register;
+import static dev.worldgen.mortar.block.MortarBlockUtils.*;
+import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colored;
+import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colorless;
+import static dev.worldgen.mortar.block.set.GenericSet.brickSet;
+import static dev.worldgen.mortar.block.set.GenericSet.set;
+import static net.minecraft.block.Blocks.*;
 
 @SuppressWarnings("unused")
-public class MortarBlocks {
+public interface MortarBlocks {
+    Block STONE_WALL = buildingGroup(STONE_SLAB, wall("stone_wall", STONE));
+    Block SMOOTH_STONE_STAIRS = buildingGroup(SMOOTH_STONE, stairs("smooth_stone_stairs", SMOOTH_STONE));
+    Block SMOOTH_STONE_WALL = buildingGroup(SMOOTH_STONE_SLAB, wall("smooth_stone_wall", SMOOTH_STONE));
+    Block CHISELED_MOSSY_STONE_BRICKS = buildingGroup(MOSSY_STONE_BRICK_SLAB, full("chiseled_mossy_stone_bricks", STONE_BRICKS));
 
-    /**
-     * Stone
-     */
-    public static final Block STONE_WALL = registerWallBlock("stone_wall", Blocks.STONE, Blocks.STONE_SLAB, null);
-    public static final Block SMOOTH_STONE_STAIRS = registerStairsBlock("smooth_stone_stairs", Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE, null);
-    public static final Block SMOOTH_STONE_WALL = registerWallBlock("smooth_stone_wall", Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, null);
-    public static final Block CHISELED_MOSSY_STONE_BRICKS = registerSimpleBlock("chiseled_mossy_stone_bricks", Blocks.STONE_BRICKS, Blocks.MOSSY_STONE_BRICK_WALL, null);
+    Block POLISHED_ANDESITE_WALL = buildingGroup(POLISHED_ANDESITE_SLAB, wall("polished_andesite_wall", ANDESITE));
+    GenericSet ANDESITE_BRICKS = brickSet("andesite_brick", ANDESITE, POLISHED_ANDESITE_WALL);
+    Block CHISELED_ANDESITE_BRICKS = buildingGroup(ANDESITE_BRICKS.wall(), full("chiseled_andesite_bricks", ANDESITE));
 
-    /**
-     * Granite
-     */
-    //public static final Block CHISELED_GRANITE = registerSimpleBlock("chiseled_granite", Blocks.GRANITE, Blocks.GRANITE_WALL, null);
-    public static final Block POLISHED_GRANITE_WALL = registerWallBlock("polished_granite_wall", Blocks.POLISHED_GRANITE, Blocks.POLISHED_GRANITE_SLAB, null);
-    public static final Block GRANITE_BRICKS = registerSimpleBlock("granite_bricks", Blocks.GRANITE, MortarBlocks.POLISHED_GRANITE_WALL, null);
-    public static final Block GRANITE_BRICK_STAIRS = registerStairsBlock("granite_brick_stairs", Blocks.GRANITE, MortarBlocks.GRANITE_BRICKS, null);
-    public static final Block GRANITE_BRICK_SLAB = registerSlabBlock("granite_brick_slab", Blocks.GRANITE, MortarBlocks.GRANITE_BRICK_STAIRS, null);
-    public static final Block GRANITE_BRICK_WALL = registerWallBlock("granite_brick_wall", Blocks.GRANITE, MortarBlocks.GRANITE_BRICK_SLAB, null);
-    //public static final Block CHISELED_GRANITE_BRICKS = registerSimpleBlock("chiseled_granite_bricks", Blocks.GRANITE, MortarBlocks.GRANITE_BRICK_WALL, null);
+    Block POLISHED_DIORITE_WALL = buildingGroup(POLISHED_DIORITE_SLAB, wall("polished_diorite_wall", DIORITE));
+    GenericSet DIORITE_BRICKS = brickSet("diorite_brick", DIORITE, POLISHED_DIORITE_WALL);
+    Block CHISELED_DIORITE_BRICKS = buildingGroup(DIORITE_BRICKS.wall(), full("chiseled_diorite_bricks", DIORITE));
 
-    /**
-     * Diorite
-     */
-    //public static final Block CHISELED_DIORITE = registerSimpleBlock("chiseled_diorite", Blocks.DIORITE, Blocks.DIORITE_WALL, null);
-    public static final Block POLISHED_DIORITE_WALL = registerWallBlock("polished_diorite_wall", Blocks.POLISHED_DIORITE, Blocks.POLISHED_DIORITE_SLAB, null);
-    public static final Block DIORITE_BRICKS = registerSimpleBlock("diorite_bricks", Blocks.DIORITE, MortarBlocks.POLISHED_DIORITE_WALL, null);
-    public static final Block DIORITE_BRICK_STAIRS = registerStairsBlock("diorite_brick_stairs", Blocks.DIORITE, MortarBlocks.DIORITE_BRICKS, null);
-    public static final Block DIORITE_BRICK_SLAB = registerSlabBlock("diorite_brick_slab", Blocks.DIORITE, MortarBlocks.DIORITE_BRICK_STAIRS, null);
-    public static final Block DIORITE_BRICK_WALL = registerWallBlock("diorite_brick_wall", Blocks.DIORITE, MortarBlocks.DIORITE_BRICK_SLAB, null);
-    //public static final Block CHISELED_DIORITE_BRICKS = registerSimpleBlock("chiseled_diorite_bricks", Blocks.DIORITE, MortarBlocks.DIORITE_BRICK_WALL, null);
+    Block POLISHED_GRANITE_WALL = buildingGroup(POLISHED_GRANITE_SLAB, wall("polished_granite_wall", GRANITE));
+    GenericSet GRANITE_BRICKS = brickSet("granite_brick", GRANITE, POLISHED_GRANITE_WALL);
+    Block CHISELED_GRANITE_BRICKS = buildingGroup(GRANITE_BRICKS.wall(), full("chiseled_granite_bricks", GRANITE));
 
-    /**
-     * Andesite
-     */
-    //public static final Block CHISELED_ANDESITE = registerSimpleBlock("chiseled_andesite", Blocks.ANDESITE, Blocks.ANDESITE_WALL, null);
-    public static final Block POLISHED_ANDESITE_WALL = registerWallBlock("polished_andesite_wall", Blocks.POLISHED_ANDESITE, Blocks.POLISHED_ANDESITE_SLAB, null);
-    public static final Block ANDESITE_BRICKS = registerSimpleBlock("andesite_bricks", Blocks.ANDESITE, MortarBlocks.POLISHED_ANDESITE_WALL, null);
-    public static final Block ANDESITE_BRICK_STAIRS = registerStairsBlock("andesite_brick_stairs", Blocks.ANDESITE, MortarBlocks.ANDESITE_BRICKS, null);
-    public static final Block ANDESITE_BRICK_SLAB = registerSlabBlock("andesite_brick_slab", Blocks.ANDESITE, MortarBlocks.ANDESITE_BRICK_STAIRS, null);
-    public static final Block ANDESITE_BRICK_WALL = registerWallBlock("andesite_brick_wall", Blocks.ANDESITE, MortarBlocks.ANDESITE_BRICK_SLAB, null);
-    //public static final Block CHISELED_ANDESITE_BRICKS = registerSimpleBlock("chiseled_andesite_bricks", Blocks.ANDESITE, MortarBlocks.ANDESITE_BRICK_WALL, null);
+    Block CALCITE_STAIRS = buildingGroup(CALCITE, stairs("calcite_stairs", CALCITE));
+    Block CALCITE_SLAB = buildingGroup(CALCITE_STAIRS, slab("calcite_slab", CALCITE));
+    Block CALCITE_WALL = buildingGroup(CALCITE_SLAB, wall("calcite_wall", CALCITE));
+    GenericSet POLISHED_CALCITE = set("polished_calcite", CALCITE, CALCITE_WALL);
+    GenericSet CALCITE_BRICKS = brickSet("calcite_brick", CALCITE, POLISHED_CALCITE.wall());
+    Block CHISELED_CALCITE_BRICKS = buildingGroup(CALCITE_BRICKS.wall(), full("chiseled_calcite_bricks", CALCITE));
 
-    /**
-     * Calcite
-     */
-    public static final Block CALCITE_STAIRS = registerStairsBlock("calcite_stairs", Blocks.CALCITE, Blocks.CALCITE, null);
-    public static final Block CALCITE_SLAB = registerSlabBlock("calcite_slab", Blocks.CALCITE, MortarBlocks.CALCITE_STAIRS, null);
-    public static final Block CALCITE_WALL = registerWallBlock("calcite_wall", Blocks.CALCITE, MortarBlocks.CALCITE_SLAB, null);
-    //public static final Block CHISELED_CALCITE = registerSimpleBlock("chiseled_calcite", Blocks.CALCITE, MortarBlocks.CALCITE_WALL, null);
-    public static final Block POLISHED_CALCITE = registerSimpleBlock("polished_calcite", Blocks.CALCITE, MortarBlocks.CALCITE_WALL, MortarBlockSounds.POLISHED_CALCITE);
-    public static final Block POLISHED_CALCITE_STAIRS = registerStairsBlock("polished_calcite_stairs", Blocks.CALCITE, MortarBlocks.POLISHED_CALCITE, MortarBlockSounds.POLISHED_CALCITE);
-    public static final Block POLISHED_CALCITE_SLAB = registerSlabBlock("polished_calcite_slab", Blocks.CALCITE, MortarBlocks.POLISHED_CALCITE_STAIRS, MortarBlockSounds.POLISHED_CALCITE);
-    public static final Block POLISHED_CALCITE_WALL = registerWallBlock("polished_calcite_wall", Blocks.CALCITE, MortarBlocks.POLISHED_CALCITE_SLAB, MortarBlockSounds.POLISHED_CALCITE);
-    public static final Block CALCITE_BRICKS = registerSimpleBlock("calcite_bricks", Blocks.CALCITE, MortarBlocks.POLISHED_CALCITE_WALL, null);
-    public static final Block CALCITE_BRICK_STAIRS = registerStairsBlock("calcite_brick_stairs", Blocks.CALCITE, MortarBlocks.CALCITE_BRICKS, null);
-    public static final Block CALCITE_BRICK_SLAB = registerSlabBlock("calcite_brick_slab", Blocks.CALCITE, MortarBlocks.CALCITE_BRICK_STAIRS, null);
-    public static final Block CALCITE_BRICK_WALL = registerWallBlock("calcite_brick_wall", Blocks.CALCITE, MortarBlocks.CALCITE_BRICK_SLAB, null);
-    //public static final Block CHISELED_CALCITE_BRICKS = registerSimpleBlock("chiseled_calcite_bricks", Blocks.CALCITE, MortarBlocks.CALCITE_BRICK_WALL, null);
+    Block CHISELED_MUD_BRICKS = buildingGroup(MUD_BRICK_WALL, full("chiseled_mud_bricks", MUD_BRICKS));
+    Block SMOOTH_SANDSTONE_WALL = buildingGroup(SMOOTH_SANDSTONE_SLAB, wall("smooth_sandstone_wall", SMOOTH_SANDSTONE));
+    Block CUT_SANDSTONE_STAIRS = buildingGroup(CUT_SANDSTONE, stairs("cut_sandstone_stairs", CUT_SANDSTONE));
+    Block CUT_SANDSTONE_WALL = buildingGroup(CUT_SANDSTONE_SLAB, wall("cut_sandstone_wall", CUT_SANDSTONE));
+    Block SMOOTH_RED_SANDSTONE_WALL = buildingGroup(SMOOTH_RED_SANDSTONE_SLAB, wall("smooth_red_sandstone_wall", SMOOTH_RED_SANDSTONE));
+    Block CUT_RED_SANDSTONE_STAIRS = buildingGroup(CUT_RED_SANDSTONE, stairs("cut_red_sandstone_stairs", CUT_RED_SANDSTONE));
+    Block CUT_RED_SANDSTONE_WALL = buildingGroup(CUT_RED_SANDSTONE_SLAB, wall("cut_red_sandstone_wall", CUT_RED_SANDSTONE));
+    Block PRISMARINE_BRICK_WALL = buildingGroup(PRISMARINE_BRICK_SLAB, wall("prismarine_brick_wall", PRISMARINE_BRICKS));
+    Block CHISELED_PRISMARINE_BRICKS = buildingGroup(PRISMARINE_BRICK_WALL, full("chiseled_prismarine_bricks", PRISMARINE_BRICKS));
+    Block DARK_PRISMARINE_WALL = buildingGroup(DARK_PRISMARINE_STAIRS, wall("dark_prismarine_wall", DARK_PRISMARINE));
+    Block CHISELED_RED_NETHER_BRICKS = buildingGroup(RED_NETHER_BRICK_WALL, full("chiseled_red_nether_bricks", RED_NETHER_BRICKS));
+    Block CHISELED_END_STONE_BRICKS = buildingGroup(END_STONE_BRICK_WALL, full("chiseled_end_stone_bricks", END_STONE_BRICKS));
+    Block PURPUR_WALL = buildingGroup(PURPUR_SLAB, wall("purpur_wall", PURPUR_BLOCK));
+    Block CHISELED_PURPUR_BLOCK = buildingGroup(PURPUR_WALL, full("chiseled_purpur_block", PURPUR_BLOCK));
+    Block QUARTZ_WALL = buildingGroup(QUARTZ_SLAB, wall("quartz_wall", QUARTZ_BLOCK));
+    Block SMOOTH_QUARTZ_WALL = buildingGroup(SMOOTH_QUARTZ_SLAB, wall("smooth_quartz_wall", SMOOTH_QUARTZ));
+    Block QUARTZ_BRICK_STAIRS = buildingGroup(QUARTZ_BRICKS, stairs("quartz_brick_stairs", QUARTZ_BRICKS));
+    Block QUARTZ_BRICK_SLAB = buildingGroup(QUARTZ_BRICK_STAIRS, slab("quartz_brick_slab", QUARTZ_BRICKS));
+    Block QUARTZ_BRICK_WALL = buildingGroup(QUARTZ_BRICK_SLAB, wall("quartz_brick_wall", QUARTZ_BRICKS));
 
-    /**
-     * Misc.
-     */
-    public static final Block CHISELED_MUD_BRICKS = registerSimpleBlock("chiseled_mud_bricks", Blocks.MUD_BRICKS, Blocks.MUD_BRICK_WALL, null);
-    public static final Block SMOOTH_SANDSTONE_WALL = registerWallBlock("smooth_sandstone_wall", Blocks.SMOOTH_SANDSTONE, Blocks.SMOOTH_SANDSTONE_SLAB, null);
-    public static final Block CUT_SANDSTONE_STAIRS = registerStairsBlock("cut_sandstone_stairs", Blocks.CUT_SANDSTONE, Blocks.CUT_SANDSTONE, null);
-    public static final Block CUT_SANDSTONE_WALL = registerWallBlock("cut_sandstone_wall", Blocks.CUT_SANDSTONE, Blocks.CUT_SANDSTONE_SLAB, null);
-    public static final Block SMOOTH_RED_SANDSTONE_WALL = registerWallBlock("smooth_red_sandstone_wall", Blocks.SMOOTH_RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE_SLAB, null);
-    public static final Block CUT_RED_SANDSTONE_STAIRS = registerStairsBlock("cut_red_sandstone_stairs", Blocks.CUT_RED_SANDSTONE, Blocks.CUT_RED_SANDSTONE, null);
-    public static final Block CUT_RED_SANDSTONE_WALL = registerWallBlock("cut_red_sandstone_wall", Blocks.CUT_RED_SANDSTONE, Blocks.CUT_RED_SANDSTONE_SLAB, null);
-    public static final Block CHISELED_PRISMARINE_BRICKS = registerSimpleBlock("chiseled_prismarine_bricks", Blocks.PRISMARINE_BRICKS, Blocks.PRISMARINE_WALL, null);
-    public static final Block PRISMARINE_BRICK_WALL = registerWallBlock("prismarine_brick_wall", Blocks.PRISMARINE_BRICKS, Blocks.PRISMARINE_BRICK_SLAB, null);
-    public static final Block DARK_PRISMARINE_WALL = registerWallBlock("dark_prismarine_wall", Blocks.DARK_PRISMARINE, Blocks.DARK_PRISMARINE_SLAB, null);
-    public static final Block CHISELED_RED_NETHER_BRICKS = registerSimpleBlock("chiseled_red_nether_bricks", Blocks.RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICK_WALL, null);
-    public static final Block CHISELED_END_STONE_BRICKS = registerSimpleBlock("chiseled_end_stone_bricks", Blocks.END_STONE_BRICKS, Blocks.END_STONE_BRICK_WALL, null);
-    public static final Block PURPUR_WALL = registerWallBlock("purpur_wall", Blocks.PURPUR_BLOCK, Blocks.PURPUR_SLAB, null);
-    public static final Block CHISELED_PURPUR_BLOCK = registerSimpleBlock("chiseled_purpur_block", Blocks.PURPUR_BLOCK, MortarBlocks.PURPUR_WALL, null);
-    public static final Block QUARTZ_WALL = registerWallBlock("quartz_wall", Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_SLAB, null);
-    public static final Block SMOOTH_QUARTZ_WALL = registerWallBlock("smooth_quartz_wall", Blocks.SMOOTH_QUARTZ, Blocks.SMOOTH_QUARTZ_SLAB, null);
-    public static final Block QUARTZ_BRICK_STAIRS = registerStairsBlock("quartz_brick_stairs", Blocks.QUARTZ_BRICKS, Blocks.QUARTZ_BRICKS, null);
-    public static final Block QUARTZ_BRICK_SLAB = registerSlabBlock("quartz_brick_slab", Blocks.QUARTZ_BRICKS, MortarBlocks.QUARTZ_BRICK_STAIRS, null);
-    public static final Block QUARTZ_BRICK_WALL = registerWallBlock("quartz_brick_wall", Blocks.QUARTZ_BRICKS, MortarBlocks.QUARTZ_BRICK_SLAB, null);
+    DyedBlockSet BANNERS = DyedBlockSet.create(colored(BannerBlock::new), "banner", WHITE_BANNER, BlockEntityType.BANNER);
+    DyedBlockSet BEDS = DyedBlockSet.create(colored(BedBlock::new), "bed", WHITE_BED, BlockEntityType.BED);
+    DyedBlockSet CANDLES = DyedBlockSet.create(colorless(CandleBlock::new), "candle", WHITE_CANDLE);
+    DyedBlockSet CANDLE_CAKES = DyedBlockSet.create(DyedBlockSet.BlockCreator.CANDLE_CAKE, "candle_cake", WHITE_CANDLE_CAKE);
+    DyedBlockSet CARPETS = DyedBlockSet.create(colored(DyedCarpetBlock::new), "carpet", WHITE_CARPET);
+    DyedBlockSet CONCRETES = DyedBlockSet.generic("concrete", WHITE_CONCRETE);
+    DyedBlockSet CONCRETE_POWDERS = DyedBlockSet.create(DyedBlockSet.BlockCreator.CONCRETE_POWDER, "concrete_powder", WHITE_CONCRETE_POWDER);
+    DyedBlockSet GLAZED_TERRACOTTAS = DyedBlockSet.create(colorless(GlazedTerracottaBlock::new), "glazed_terracotta", WHITE_GLAZED_TERRACOTTA);
+    DyedBlockSet SHULKER_BOXES = DyedBlockSet.create(colored(ShulkerBoxBlock::new), "shulker_box", WHITE_SHULKER_BOX, BlockEntityType.SHULKER_BOX);
+    DyedBlockSet STAINED_GLASSES = DyedBlockSet.create(colored(StainedGlassBlock::new), "stained_glass", WHITE_STAINED_GLASS);
+    DyedBlockSet STAINED_GLASS_PANES = DyedBlockSet.create(colored(StainedGlassPaneBlock::new), "stained_glass_pane", WHITE_STAINED_GLASS_PANE);
+    DyedBlockSet TERRACOTTAS = DyedBlockSet.generic("terracotta", WHITE_TERRACOTTA);
+    DyedBlockSet WALL_BANNERS = DyedBlockSet.create(colored(WallBannerBlock::new), "wall_banner", WHITE_WALL_BANNER, BlockEntityType.BANNER);
+    DyedBlockSet WOOLS = DyedBlockSet.generic("wool", WHITE_WOOL);
 
-    private static void addBlockBefore(Block block, Block blockBefore) {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addAfter(blockBefore, block));
+    Block BLUE_AMARANTH = register("blue_amaranth", new FlowerBlock(StatusEffects.SPEED, 10, settings("blue_amaranth", CORNFLOWER)));
+    Block SNAPDRAGON = register("snapdragon", new TallFlowerBlock(settings("snapdragon", LILAC)));
+
+    static void init() {
+        Map<BlockState, RegistryEntry<PointOfInterestType>> poiStatesToTypes = PointOfInterestTypesAccessor.getPoiStatesToTypes();
+        RegistryEntry<PointOfInterestType> home = Registries.POINT_OF_INTEREST_TYPE.getEntry(PointOfInterestTypes.HOME.getValue()).get();
+        BEDS.stream().map(MortarBlocks::getBedHeads).forEach(bedHeads -> bedHeads.forEach(bedHead -> poiStatesToTypes.put(bedHead, home)));
+
+        FlammableBlockRegistry.getDefaultInstance().add(tag("wools"), 30, 60);
+        FlammableBlockRegistry.getDefaultInstance().add(tag("carpets"), 60, 20);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.addAfter(CORNFLOWER, BLUE_AMARANTH);
+            entries.addAfter(LILAC, SNAPDRAGON);
+        });
     }
 
-    private static Block registerSimpleBlock(String name, Block copiedBlock, Block blockBefore, @Nullable BlockSoundGroup soundGroup) {
-        return registerBlock(name, new Block(getSettings(copiedBlock, soundGroup)), blockBefore);
+    private static List<BlockState> getBedHeads(Block block) {
+        return block.getStateManager().getStates().stream().filter(state -> state.get(BedBlock.PART) == BedPart.HEAD).toList();
     }
 
-    private static Block registerStairsBlock(String name, Block copiedBlock, Block blockBefore, @Nullable BlockSoundGroup soundGroup) {
-        return registerBlock(name, new StairsBlock(copiedBlock.getDefaultState(), getSettings(copiedBlock, soundGroup)), blockBefore);
-    }
-
-    private static Block registerSlabBlock(String name, Block copiedBlock, Block blockBefore, @Nullable BlockSoundGroup soundGroup) {
-        return registerBlock(name, new SlabBlock(getSettings(copiedBlock, soundGroup)), blockBefore);
-    }
-
-    private static Block registerWallBlock(String name, Block copiedBlock, Block blockBefore, @Nullable BlockSoundGroup soundGroup) {
-        return registerBlock(name, new WallBlock(getSettings(copiedBlock, soundGroup)), blockBefore);
-    }
-
-    private static Block registerBlock(String name, Block block, Block blockBefore) {
-        registerBlockItem(name, block, blockBefore);
-        return Registry.register(Registries.BLOCK, Identifier.of(Mortar.MOD_ID, name), block);
-    }
-
-    private static void registerBlockItem(String name, Block block, Block blockBefore) {
-        addBlockBefore(block, blockBefore);
-        Registry.register(Registries.ITEM, Identifier.of(Mortar.MOD_ID, name), new BlockItem(block, new Item.Settings()));
-    }
-
-    private static AbstractBlock.Settings getSettings(Block copiedBlock, @Nullable BlockSoundGroup soundGroup) {
-        AbstractBlock.Settings settings = AbstractBlock.Settings.copy(copiedBlock);
-        return soundGroup != null ? settings.sounds(soundGroup) : settings;
-    }
-
-    public static void register() {
+    private static TagKey<Block> tag(String name) {
+        return TagKey.of(RegistryKeys.BLOCK, Mortar.id(name));
     }
 }

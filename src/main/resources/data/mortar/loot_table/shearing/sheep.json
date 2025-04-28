@@ -1,0 +1,169 @@
+{
+  "type": "minecraft:shearing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "maroon"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/maroon"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "scarlet"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/scarlet"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "amber"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/amber"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "pear"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/pear"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "pine"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/pine"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "slate"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/slate"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "lavender"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/lavender"
+            },
+            {
+              "type": "minecraft:loot_table",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type_specific": {
+                      "type": "minecraft:sheep",
+                      "sheared": false
+                    },
+                    "components": {
+                      "minecraft:sheep/color": "salmon"
+                    }
+                  }
+                }
+              ],
+              "value": "mortar:shearing/sheep/salmon"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:shearing/sheep"
+}

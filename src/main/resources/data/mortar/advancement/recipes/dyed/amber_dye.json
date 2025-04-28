@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:amber_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_amber_bed",
+      "mortar:crafting_table/dye_amber_carpet",
+      "mortar:crafting_table/dye_amber_wool",
+      "mortar:crafting_table/amber_bundle",
+      "mortar:crafting_table/amber_candle",
+      "mortar:crafting_table/amber_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

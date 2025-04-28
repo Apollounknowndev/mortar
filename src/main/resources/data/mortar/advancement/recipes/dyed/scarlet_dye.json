@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:scarlet_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_scarlet_bed",
+      "mortar:crafting_table/dye_scarlet_carpet",
+      "mortar:crafting_table/dye_scarlet_wool",
+      "mortar:crafting_table/scarlet_bundle",
+      "mortar:crafting_table/scarlet_candle",
+      "mortar:crafting_table/scarlet_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

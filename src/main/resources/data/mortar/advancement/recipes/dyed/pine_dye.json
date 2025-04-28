@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:pine_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_pine_bed",
+      "mortar:crafting_table/dye_pine_carpet",
+      "mortar:crafting_table/dye_pine_wool",
+      "mortar:crafting_table/pine_bundle",
+      "mortar:crafting_table/pine_candle",
+      "mortar:crafting_table/pine_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "type": "lithostitched:add_processor_list_processors",
+  "processor_lists": "minecraft:trail_ruins_houses_archaeology",
+  "processors": [
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": {
+        "mode": "per_piece",
+        "name": "mortar:maroon"
+      },
+      "if_true": [
+        {
+          "type": "lithostitched:matching_blocks",
+          "blocks": "minecraft:red_terracotta"
+        },
+        {
+          "type": "lithostitched:random_chance",
+          "chance": 0.3
+        }
+      ],
+      "then": {
+        "processor_type": "lithostitched:set_block",
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "mortar:maroon_terracotta"
+          }
+        }
+      }
+    },
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": {
+        "mode": "per_piece",
+        "name": "mortar:scarlet"
+      },
+      "if_true": [
+        {
+          "type": "lithostitched:matching_blocks",
+          "blocks": "minecraft:orange_terracotta"
+        },
+        {
+          "type": "lithostitched:random_chance",
+          "chance": 0.3
+        }
+      ],
+      "then": {
+        "processor_type": "lithostitched:set_block",
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "mortar:scarlet_terracotta"
+          }
+        }
+      }
+    },
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": {
+        "mode": "per_piece",
+        "name": "mortar:amber"
+      },
+      "if_true": [
+        {
+          "type": "lithostitched:matching_blocks",
+          "blocks": "minecraft:yellow_terracotta"
+        },
+        {
+          "type": "lithostitched:random_chance",
+          "chance": 0.3
+        }
+      ],
+      "then": {
+        "processor_type": "lithostitched:set_block",
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "mortar:amber_terracotta"
+          }
+        }
+      }
+    },
+    {
+      "processor_type": "lithostitched:condition",
+      "random_mode": {
+        "mode": "per_piece",
+        "name": "mortar:slate"
+      },
+      "if_true": [
+        {
+          "type": "lithostitched:matching_blocks",
+          "blocks": "minecraft:blue_terracotta"
+        },
+        {
+          "type": "lithostitched:random_chance",
+          "chance": 0.3
+        }
+      ],
+      "then": {
+        "processor_type": "lithostitched:set_block",
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "mortar:slate_terracotta"
+          }
+        }
+      }
+    }
+  ]
+}

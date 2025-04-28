@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "mortar:smooth_stone_stairs",
+    "mortar:granite_brick_stairs",
+    "mortar:diorite_brick_stairs",
+    "mortar:andesite_brick_stairs",
+    "mortar:calcite_stairs",
+    "mortar:calcite_brick_stairs",
+    "mortar:polished_calcite_stairs",
+    "mortar:cut_sandstone_stairs",
+    "mortar:cut_red_sandstone_stairs",
+    "mortar:quartz_brick_stairs"
+  ]
+}

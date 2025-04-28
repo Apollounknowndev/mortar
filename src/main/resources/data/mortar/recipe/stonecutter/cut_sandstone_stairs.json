@@ -1,12 +1,8 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": [
-    {
-      "item": "minecraft:cut_sandstone"
-    },
-    {
-      "item": "minecraft:sandstone"
-    }
+    "minecraft:cut_sandstone",
+    "minecraft:sandstone"
   ],
   "result": {
     "id": "mortar:cut_sandstone_stairs"

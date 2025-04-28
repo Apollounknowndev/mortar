@@ -1,0 +1,41 @@
+{
+  "parent": "mortar:adventure/all_dyes",
+  "criteria": {
+    "criterion": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:salmon_bundle",
+            "predicates": {
+              "minecraft:bundle_contents": {
+                "items": {
+                  "contains": [
+                    {
+                      "items": "minecraft:salmon",
+                      "count": 64
+                    }
+                  ],
+                  "count": []
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mortar.full_salmon_bundle.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:salmon"
+    },
+    "title": {
+      "translate": "advancements.mortar.full_salmon_bundle.title"
+    }
+  },
+  "sends_telemetry_event": false
+}

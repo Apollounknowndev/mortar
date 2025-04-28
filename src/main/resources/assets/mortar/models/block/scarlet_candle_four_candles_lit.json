@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_four_candles",
+  "textures": {
+    "all": "mortar:block/scarlet_candle_lit",
+    "particle": "mortar:block/scarlet_candle_lit"
+  }
+}

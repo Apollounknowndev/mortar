@@ -1,0 +1,8 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:village/snowy/houses",
+    "minecraft:village/snowy/zombie/houses"
+  ],
+  "processor_list": "mortar:village_snowy"
+}

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "mortar:diorite_bricks"
-    }
+    "#": "mortar:diorite_bricks"
   },
   "pattern": [
     "###"

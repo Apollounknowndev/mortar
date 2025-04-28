@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "dyed_candle",
+  "ingredients": [
+    "minecraft:candle",
+    "mortar:pine_dye"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mortar:pine_candle"
+  }
+}

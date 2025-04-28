@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mortar:block/lavender_candle_cake"
+    },
+    "lit=true": {
+      "model": "mortar:block/lavender_candle_cake_lit"
+    }
+  }
+}

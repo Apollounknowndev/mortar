@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "building",
+  "group": "wool",
+  "input": "#minecraft:wool",
+  "material": "mortar:lavender_dye",
+  "result": "mortar:lavender_wool"
+}

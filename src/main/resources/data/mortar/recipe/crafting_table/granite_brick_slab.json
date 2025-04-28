@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "mortar:granite_bricks"
-    }
+    "#": "mortar:granite_bricks"
   },
   "pattern": [
     "###"

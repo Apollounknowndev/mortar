@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "amber_dye",
+  "ingredients": [
+    "minecraft:honeycomb"
+  ],
+  "result": {
+    "id": "mortar:amber_dye"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gravel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gravel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_sand",
+      "has_gravel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/maroon_concrete_powder",
+      "mortar:crafting_table/scarlet_concrete_powder",
+      "mortar:crafting_table/amber_concrete_powder",
+      "mortar:crafting_table/pear_concrete_powder",
+      "mortar:crafting_table/pine_concrete_powder",
+      "mortar:crafting_table/slate_concrete_powder",
+      "mortar:crafting_table/lavender_concrete_powder",
+      "mortar:crafting_table/salmon_concrete_powder"
+    ]
+  }
+}

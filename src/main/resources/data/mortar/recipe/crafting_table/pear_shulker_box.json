@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "group": "shulker_box_dye",
+  "input": "#minecraft:shulker_boxes",
+  "material": "mortar:pear_dye",
+  "result": "mortar:pear_shulker_box"
+}

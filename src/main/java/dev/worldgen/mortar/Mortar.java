@@ -1,12 +1,14 @@
 package dev.worldgen.mortar;
 
 import dev.worldgen.mortar.block.MortarBlocks;
-import dev.worldgen.mortar.config.ConfigHandler;
+import dev.worldgen.mortar.item.MortarItems;
+import dev.worldgen.mortar.misc.MortarAttachments;
+import dev.worldgen.mortar.misc.MortarMapDecorations;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +18,17 @@ public class Mortar implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ConfigHandler.load();
+		// Have to do this before blocks/items are initialized and added
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addBefore(Blocks.BRICKS, Blocks.CALCITE));
-		MortarBlocks.register();
+
+		MortarBlocks.init();
+		MortarItems.init();
+		MortarAttachments.init();
+		MortarMapDecorations.init();
+		MortarIntegrations.init();
+	}
+
+	public static Identifier id(String name) {
+		return Identifier.of(MOD_ID, name);
 	}
 }

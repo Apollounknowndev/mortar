@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:quartz"
-  },
+  "ingredient": "minecraft:quartz",
   "result": {
     "id": "mortar:quartz_wall"
   }

@@ -1,0 +1,8 @@
+{
+  "type": "lithostitched:set_pool_element_processors",
+  "template_pools": [
+    "minecraft:village/desert/houses",
+    "minecraft:village/desert/zombie/houses"
+  ],
+  "processor_list": "mortar:village_desert"
+}

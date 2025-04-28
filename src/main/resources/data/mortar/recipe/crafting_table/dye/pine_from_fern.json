@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pine_dye",
+  "ingredients": [
+    "minecraft:fern"
+  ],
+  "result": {
+    "id": "mortar:pine_dye"
+  }
+}

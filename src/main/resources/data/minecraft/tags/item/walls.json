@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "mortar:stone_wall",
+    "mortar:smooth_stone_wall",
+    "mortar:granite_brick_wall",
+    "mortar:polished_granite_wall",
+    "mortar:diorite_brick_wall",
+    "mortar:polished_diorite_wall",
+    "mortar:andesite_brick_wall",
+    "mortar:polished_andesite_wall",
+    "mortar:calcite_wall",
+    "mortar:calcite_brick_wall",
+    "mortar:polished_calcite_wall",
+    "mortar:smooth_sandstone_wall",
+    "mortar:cut_sandstone_wall",
+    "mortar:smooth_red_sandstone_wall",
+    "mortar:cut_red_sandstone_wall",
+    "mortar:prismarine_brick_wall",
+    "mortar:dark_prismarine_wall",
+    "mortar:purpur_wall",
+    "mortar:quartz_wall",
+    "mortar:smooth_quartz_wall",
+    "mortar:quartz_brick_wall"
+  ]
+}

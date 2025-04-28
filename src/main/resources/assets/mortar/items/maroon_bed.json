@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "mortar:item/maroon_bed",
+    "model": {
+      "type": "minecraft:bed",
+      "texture": "mortar:maroon"
+    }
+  }
+}

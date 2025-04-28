@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortar:maroon_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/dye_maroon_bed",
+      "mortar:crafting_table/dye_maroon_carpet",
+      "mortar:crafting_table/dye_maroon_wool",
+      "mortar:crafting_table/maroon_bundle",
+      "mortar:crafting_table/maroon_candle",
+      "mortar:crafting_table/maroon_stained_glass_pane_from_glass_pane"
+    ]
+  }
+}

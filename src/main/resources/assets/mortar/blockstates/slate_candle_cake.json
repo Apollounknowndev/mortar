@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mortar:block/slate_candle_cake"
+    },
+    "lit=true": {
+      "model": "mortar:block/slate_candle_cake_lit"
+    }
+  }
+}

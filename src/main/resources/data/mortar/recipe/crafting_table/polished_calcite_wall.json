@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "mortar:polished_calcite"
-    }
+    "#": "mortar:polished_calcite"
   },
   "pattern": [
     "###",
