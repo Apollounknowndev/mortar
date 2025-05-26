@@ -22,7 +22,7 @@ public class MortarIntegrations {
     public static void init() {
         LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
             if (key.equals(BuiltInLootTables.SHEPHERD_GIFT)) {
-                builder.modifyPools(pool -> MortarItems.WOOLS.stream().forEach(item -> pool.add(LootItem.lootTableItem(item))));
+                builder.modifyPools(pool -> MortarItems.WOOLS.forEach(item -> pool.add(LootItem.lootTableItem(item))));
             }
 
             if (key.equals(BuiltInLootTables.SHEAR_SHEEP)) {
@@ -35,7 +35,7 @@ public class MortarIntegrations {
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories ->
-            MortarItems.BANNERS.stream().forEach(item ->
+            MortarItems.BANNERS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 3, 1, 12, 15))
             )
         );
@@ -46,19 +46,19 @@ public class MortarIntegrations {
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.MASON, 4, factories -> {
-            MortarItems.TERRACOTTAS.stream().forEach(item ->
+            MortarItems.TERRACOTTAS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 1, 1, 12, 15))
             );
-            MortarItems.GLAZED_TERRACOTTAS.stream().forEach(item ->
+            MortarItems.GLAZED_TERRACOTTAS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 1, 1, 12, 15))
             );
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 2, factories -> {
-            MortarItems.WOOLS.stream().forEach(item ->
+            MortarItems.WOOLS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 1, 1, 16, 5))
             );
-            MortarItems.CARPETS.stream().forEach(item ->
+            MortarItems.CARPETS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 1, 4, 16, 5))
             );
             factories.add(new VillagerTrades.EmeraldForItems(MortarItems.DYES.pear(), 12, 16, 10));
@@ -66,7 +66,7 @@ public class MortarIntegrations {
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 3, factories -> {
-            MortarItems.BEDS.stream().forEach(item ->
+            MortarItems.BEDS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 3, 1, 12, 10))
             );
             factories.add(new VillagerTrades.EmeraldForItems(MortarItems.DYES.scarlet(), 12, 16, 20));
@@ -75,7 +75,7 @@ public class MortarIntegrations {
         });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, 4, factories -> {
-            MortarItems.BANNERS.stream().forEach(item ->
+            MortarItems.BANNERS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 3, 1, 12, 15))
             );
             factories.add(new VillagerTrades.EmeraldForItems(MortarItems.DYES.maroon(), 12, 16, 30));
@@ -84,7 +84,7 @@ public class MortarIntegrations {
         });
 
         TradeOfferHelper.registerWanderingTraderOffers(builder ->
-            MortarItems.DYES.stream().forEach(item ->
+            MortarItems.DYES.forEach(item ->
                 builder.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL, new VillagerTrades.ItemsForEmeralds(item, 1, 3, 12, 1))
             )
         );
