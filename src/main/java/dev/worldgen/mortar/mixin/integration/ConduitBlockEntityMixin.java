@@ -1,8 +1,8 @@
 package dev.worldgen.mortar.mixin.integration;
 
 import dev.worldgen.mortar.block.MortarBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.entity.ConduitBlockEntity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.ConduitBlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -17,12 +17,12 @@ public class ConduitBlockEntityMixin {
     @Shadow
     @Mutable
     @Final
-    private static Block[] ACTIVATING_BLOCKS;
+    private static Block[] VALID_BLOCKS;
 
     // Add chiseled prismarine bricks to the blocks that power conduits
     static {
-        List<Block> conduitBlocks = new ArrayList<>(Arrays.stream(ACTIVATING_BLOCKS).toList());
+        List<Block> conduitBlocks = new ArrayList<>(Arrays.stream(VALID_BLOCKS).toList());
         conduitBlocks.add(MortarBlocks.CHISELED_PRISMARINE_BRICKS);
-        ACTIVATING_BLOCKS = conduitBlocks.toArray(new Block[0]);
+        VALID_BLOCKS = conduitBlocks.toArray(new Block[0]);
     }
 }

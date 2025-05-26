@@ -2,13 +2,12 @@ package dev.worldgen.mortar.item;
 
 import dev.worldgen.mortar.block.set.DyedBlockSet;
 import dev.worldgen.mortar.misc.MortarDyes;
-import net.minecraft.item.Item;
-import net.minecraft.util.DyeColor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 
 public record DyedItemSet(Item maroon, Item scarlet, Item amber, Item pear, Item pine, Item slate, Item lavender, Item salmon) {
     public static DyedItemSet generic(DyedBlockSet set) {

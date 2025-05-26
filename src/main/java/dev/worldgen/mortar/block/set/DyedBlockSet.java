@@ -1,13 +1,6 @@
 package dev.worldgen.mortar.block.set;
 
 import dev.worldgen.mortar.Mortar;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.CandleCakeBlock;
-import net.minecraft.block.ConcretePowderBlock;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.DyeColor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -15,6 +8,13 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Stream;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CandleCakeBlock;
+import net.minecraft.world.level.block.ConcretePowderBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import static dev.worldgen.mortar.block.MortarBlockUtils.coloredSettings;
 import static dev.worldgen.mortar.block.MortarBlockUtils.rawRegister;
@@ -33,7 +33,7 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
     public static DyedBlockSet create(BlockCreator creator, String suffix, Block copy, @Nullable BlockEntityType<?> blockEntity) {
         List<Block> blocks = new ArrayList<>();
         for (DyeColor color : mortarValues()) {
-            String name = color.getId() + "_" + suffix;
+            String name = color.getName() + "_" + suffix;
 
             Block block = rawRegister(name, creator.apply(color, name, copy));
             blocks.add(block);
@@ -54,7 +54,7 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
     }
 
     private static Block trimmedId(String name, int amount) {
-        return Registries.BLOCK.get(Mortar.id(name.substring(0, name.length() - amount)));
+        return BuiltInRegistries.BLOCK.getValue(Mortar.id(name.substring(0, name.length() - amount)));
     }
 
     public Block match(DyeColor color) {
@@ -78,11 +78,11 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
         BlockCreator CANDLE_CAKE = ((color, name, copied) -> new CandleCakeBlock(trimmedId(name, 5), coloredSettings(color, name, copied)));
         BlockCreator CONCRETE_POWDER = ((color, name, copied) -> new ConcretePowderBlock(trimmedId(name, 7), coloredSettings(color, name, copied)));
 
-        static BlockCreator colorless(Function<AbstractBlock.Settings, Block> creator) {
+        static BlockCreator colorless(Function<BlockBehaviour.Properties, Block> creator) {
             return ((color, name, copied) -> creator.apply(coloredSettings(color, name, copied)));
         }
 
-        static BlockCreator colored(BiFunction<DyeColor, AbstractBlock.Settings, Block> creator) {
+        static BlockCreator colored(BiFunction<DyeColor, BlockBehaviour.Properties, Block> creator) {
             return ((color, name, copied) -> creator.apply(color, coloredSettings(color, name, copied)));
         }
 

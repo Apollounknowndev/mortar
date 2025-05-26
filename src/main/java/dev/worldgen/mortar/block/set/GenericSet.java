@@ -1,7 +1,7 @@
 package dev.worldgen.mortar.block.set;
 
 import dev.worldgen.mortar.block.MortarBlockUtils;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 
 public record GenericSet(Block full, Block stairs, Block slab, Block wall) {
     public static GenericSet set(String name, Block settings, Block anchor) {

@@ -1,8 +1,8 @@
 package dev.worldgen.mortar.block;
 
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.SoundType;
 
 public class MortarBlockSounds {
-    public static final BlockSoundGroup POLISHED_CALCITE = new BlockSoundGroup(1.0f, 1.333f, SoundEvents.BLOCK_CALCITE_BREAK, SoundEvents.BLOCK_CALCITE_STEP, SoundEvents.BLOCK_CALCITE_PLACE, SoundEvents.BLOCK_CALCITE_HIT, SoundEvents.BLOCK_CALCITE_FALL);
+    public static final SoundType POLISHED_CALCITE = new SoundType(1.0f, 1.333f, SoundEvents.CALCITE_BREAK, SoundEvents.CALCITE_STEP, SoundEvents.CALCITE_PLACE, SoundEvents.CALCITE_HIT, SoundEvents.CALCITE_FALL);
 }

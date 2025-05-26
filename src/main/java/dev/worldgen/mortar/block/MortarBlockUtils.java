@@ -2,22 +2,25 @@ package dev.worldgen.mortar.block;
 
 import dev.worldgen.mortar.Mortar;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.DyeColor;
-
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.Optional;
 
 public class MortarBlockUtils {
 
     public static Block buildingGroup(Block anchor, Block block) {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addAfter(anchor, block));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> entries.addAfter(anchor, block));
         return block;
     }
 
@@ -26,7 +29,7 @@ public class MortarBlockUtils {
     }
 
     public static Block stairs(String name, Block copiedBlock) {
-        return register(name, new StairsBlock(copiedBlock.getDefaultState(), settings(name, copiedBlock)));
+        return register(name, new StairBlock(copiedBlock.defaultBlockState(), settings(name, copiedBlock)));
     }
 
     public static Block slab(String name, Block copiedBlock) {
@@ -39,35 +42,35 @@ public class MortarBlockUtils {
 
     public static Block register(String name, Block block) {
         // Create block item
-        Item.Settings settings = new Item.Settings();
-        settings.registryKey(RegistryKey.of(RegistryKeys.ITEM, Mortar.id(name)));
-        settings.useBlockPrefixedTranslationKey();
+        Item.Properties settings = new Item.Properties();
+        settings.setId(ResourceKey.create(Registries.ITEM, Mortar.id(name)));
+        settings.useBlockDescriptionPrefix();
 
-        Registry.register(Registries.ITEM, Mortar.id(name), new BlockItem(block, settings));
+        Registry.register(BuiltInRegistries.ITEM, Mortar.id(name), new BlockItem(block, settings));
 
         return rawRegister(name, block);
     }
 
     public static Block rawRegister(String name, Block block) {
-        return Registry.register(Registries.BLOCK, Mortar.id(name), block);
+        return Registry.register(BuiltInRegistries.BLOCK, Mortar.id(name), block);
     }
 
-    public static AbstractBlock.Settings settings(String name, Block copiedBlock) {
-        AbstractBlock.Settings settings = AbstractBlock.Settings.copy(copiedBlock);
-        settings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, Mortar.id(name)));
+    public static BlockBehaviour.Properties settings(String name, Block copiedBlock) {
+        BlockBehaviour.Properties settings = BlockBehaviour.Properties.ofFullCopy(copiedBlock);
+        settings.setId(ResourceKey.create(Registries.BLOCK, Mortar.id(name)));
         
         if (name.startsWith("polished_calcite")) {
-            settings.sounds(MortarBlockSounds.POLISHED_CALCITE);
+            settings.sound(MortarBlockSounds.POLISHED_CALCITE);
         }
         
         return settings;
     }
 
-    public static AbstractBlock.Settings coloredSettings(DyeColor color, String name, Block copiedBlock) {
-        AbstractBlock.Settings settings = AbstractBlock.Settings.copy(copiedBlock);
-        settings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, Mortar.id(name))).mapColor(color);
+    public static BlockBehaviour.Properties coloredSettings(DyeColor color, String name, Block copiedBlock) {
+        BlockBehaviour.Properties settings = BlockBehaviour.Properties.ofFullCopy(copiedBlock);
+        settings.setId(ResourceKey.create(Registries.BLOCK, Mortar.id(name))).mapColor(color);
         // Fix loot table id for banners
-        settings.lootTable(Optional.of(RegistryKey.of(RegistryKeys.LOOT_TABLE, Mortar.id("blocks/" + name.replace("_wall", "")))));
+        settings.overrideLootTable(Optional.of(ResourceKey.create(Registries.LOOT_TABLE, Mortar.id("blocks/" + name.replace("_wall", "")))));
 
         return settings;
     }

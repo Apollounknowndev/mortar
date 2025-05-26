@@ -6,18 +6,29 @@ import dev.worldgen.mortar.block.set.GenericSet;
 import dev.worldgen.mortar.mixin.integration.PointOfInterestTypesAccessor;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.enums.BedPart;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.world.poi.PointOfInterestType;
-import net.minecraft.world.poi.PointOfInterestTypes;
-
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.BannerBlock;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.GlazedTerracottaBlock;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.level.block.StainedGlassBlock;
+import net.minecraft.world.level.block.StainedGlassPaneBlock;
+import net.minecraft.world.level.block.TallFlowerBlock;
+import net.minecraft.world.level.block.WallBannerBlock;
+import net.minecraft.world.level.block.WoolCarpetBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +38,7 @@ import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colored;
 import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colorless;
 import static dev.worldgen.mortar.block.set.GenericSet.brickSet;
 import static dev.worldgen.mortar.block.set.GenericSet.set;
-import static net.minecraft.block.Blocks.*;
+import static net.minecraft.world.level.block.Blocks.*;
 
 @SuppressWarnings("unused")
 public interface MortarBlocks {
@@ -79,7 +90,7 @@ public interface MortarBlocks {
     DyedBlockSet BEDS = DyedBlockSet.create(colored(BedBlock::new), "bed", WHITE_BED, BlockEntityType.BED);
     DyedBlockSet CANDLES = DyedBlockSet.create(colorless(CandleBlock::new), "candle", WHITE_CANDLE);
     DyedBlockSet CANDLE_CAKES = DyedBlockSet.create(DyedBlockSet.BlockCreator.CANDLE_CAKE, "candle_cake", WHITE_CANDLE_CAKE);
-    DyedBlockSet CARPETS = DyedBlockSet.create(colored(DyedCarpetBlock::new), "carpet", WHITE_CARPET);
+    DyedBlockSet CARPETS = DyedBlockSet.create(colored(WoolCarpetBlock::new), "carpet", WHITE_CARPET);
     DyedBlockSet CONCRETES = DyedBlockSet.generic("concrete", WHITE_CONCRETE);
     DyedBlockSet CONCRETE_POWDERS = DyedBlockSet.create(DyedBlockSet.BlockCreator.CONCRETE_POWDER, "concrete_powder", WHITE_CONCRETE_POWDER);
     DyedBlockSet GLAZED_TERRACOTTAS = DyedBlockSet.create(colorless(GlazedTerracottaBlock::new), "glazed_terracotta", WHITE_GLAZED_TERRACOTTA);
@@ -90,28 +101,28 @@ public interface MortarBlocks {
     DyedBlockSet WALL_BANNERS = DyedBlockSet.create(colored(WallBannerBlock::new), "wall_banner", WHITE_WALL_BANNER, BlockEntityType.BANNER);
     DyedBlockSet WOOLS = DyedBlockSet.generic("wool", WHITE_WOOL);
 
-    Block BLUE_AMARANTH = register("blue_amaranth", new FlowerBlock(StatusEffects.SPEED, 10, settings("blue_amaranth", CORNFLOWER)));
+    Block BLUE_AMARANTH = register("blue_amaranth", new FlowerBlock(MobEffects.SPEED, 10, settings("blue_amaranth", CORNFLOWER)));
     Block SNAPDRAGON = register("snapdragon", new TallFlowerBlock(settings("snapdragon", LILAC)));
 
     static void init() {
-        Map<BlockState, RegistryEntry<PointOfInterestType>> poiStatesToTypes = PointOfInterestTypesAccessor.getPoiStatesToTypes();
-        RegistryEntry<PointOfInterestType> home = Registries.POINT_OF_INTEREST_TYPE.getEntry(PointOfInterestTypes.HOME.getValue()).get();
+        Map<BlockState, Holder<PoiType>> poiStatesToTypes = PointOfInterestTypesAccessor.getPoiStatesToTypes();
+        Holder<PoiType> home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.get(PoiTypes.HOME.location()).get();
         BEDS.stream().map(MortarBlocks::getBedHeads).forEach(bedHeads -> bedHeads.forEach(bedHead -> poiStatesToTypes.put(bedHead, home)));
 
         FlammableBlockRegistry.getDefaultInstance().add(tag("wools"), 30, 60);
         FlammableBlockRegistry.getDefaultInstance().add(tag("carpets"), 60, 20);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.addAfter(CORNFLOWER, BLUE_AMARANTH);
             entries.addAfter(LILAC, SNAPDRAGON);
         });
     }
 
     private static List<BlockState> getBedHeads(Block block) {
-        return block.getStateManager().getStates().stream().filter(state -> state.get(BedBlock.PART) == BedPart.HEAD).toList();
+        return block.getStateDefinition().getPossibleStates().stream().filter(state -> state.getValue(BedBlock.PART) == BedPart.HEAD).toList();
     }
 
     private static TagKey<Block> tag(String name) {
-        return TagKey.of(RegistryKeys.BLOCK, Mortar.id(name));
+        return TagKey.create(Registries.BLOCK, Mortar.id(name));
     }
 }

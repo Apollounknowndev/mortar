@@ -1,18 +1,18 @@
 package dev.worldgen.mortar.mixin.integration;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.world.poi.PointOfInterestType;
-import net.minecraft.world.poi.PointOfInterestTypes;
+import net.minecraft.core.Holder;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
 
-@Mixin(PointOfInterestTypes.class)
+@Mixin(PoiTypes.class)
 public interface PointOfInterestTypesAccessor {
-    @Accessor("POI_STATES_TO_TYPE")
-    static Map<BlockState, RegistryEntry<PointOfInterestType>> getPoiStatesToTypes() {
+    @Accessor("TYPE_BY_STATE")
+    static Map<BlockState, Holder<PoiType>> getPoiStatesToTypes() {
         throw new AssertionError();
     }
 }

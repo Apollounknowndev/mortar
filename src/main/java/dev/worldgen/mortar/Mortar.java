@@ -6,9 +6,9 @@ import dev.worldgen.mortar.misc.MortarAttachments;
 import dev.worldgen.mortar.misc.MortarMapDecorations;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +19,7 @@ public class Mortar implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// Have to do this before blocks/items are initialized and added
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> entries.addBefore(Blocks.BRICKS, Blocks.CALCITE));
+		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> entries.addBefore(Blocks.BRICKS, Blocks.CALCITE));
 
 		MortarBlocks.init();
 		MortarItems.init();
@@ -28,7 +28,7 @@ public class Mortar implements ModInitializer {
 		MortarIntegrations.init();
 	}
 
-	public static Identifier id(String name) {
-		return Identifier.of(MOD_ID, name);
+	public static ResourceLocation id(String name) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
 	}
 }

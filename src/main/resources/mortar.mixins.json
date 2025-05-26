@@ -2,13 +2,13 @@
   "minVersion": "0.8",
   "package": "dev.worldgen.mortar.mixin",
   "mixins": [
-    "dye.DispenserBehaviorMixin",
+    "dye.DispenseItemBehaviorMixin",
     "dye.DyeColorCreator",
     "dye.DyeColorMixin",
-    "dye.MapBannerMarkerMixin",
-    "dye.SheepEntityMixin",
+    "dye.MapBannerMixin",
+    "dye.SheepMixin",
     "dye.ShulkerBoxBlockMixin",
-    "dye.ShulkerEntityMixin",
+    "dye.ShulkerMixin",
     "integration.ConduitBlockEntityMixin",
     "integration.PointOfInterestTypesAccessor",
     "worldgen.SurfaceBuilderMixin",
@@ -16,6 +16,6 @@
     "worldgen.structure.OceanRuinMixin"
   ],
   "client": [
-    "dye.TexturedRenderLayersMixin"
+    "dye.SheetsMixin"
   ]
 }

@@ -1,25 +1,25 @@
 package dev.worldgen.mortar.mixin.dye;
 
 import dev.worldgen.mortar.misc.MortarAttachments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.DyeColor;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.sheep.Sheep;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(SheepEntity.class)
-public abstract class SheepEntityMixin extends Entity {
-    public SheepEntityMixin(EntityType<?> type, World world) {
+@Mixin(Sheep.class)
+public abstract class SheepMixin extends Entity {
+    public SheepMixin(EntityType<?> type, Level world) {
         super(type, world);
     }
 
-    @Inject(method = "getColor", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getColor()Lnet/minecraft/world/item/DyeColor;", at = @At("HEAD"), cancellable = true)
     public void getColor(CallbackInfoReturnable<DyeColor> cir) {
         DyeColor color = this.getAttached(MortarAttachments.COLOR);
         if (color != null) {
@@ -29,7 +29,7 @@ public abstract class SheepEntityMixin extends Entity {
 
     @Inject(method = "setColor", at = @At("HEAD"), cancellable = true)
     public void setColor(DyeColor color, CallbackInfo ci) {
-        if (this.getWorld() instanceof ServerWorld) {
+        if (this.level() instanceof ServerLevel) {
             this.setAttached(MortarAttachments.COLOR, color);
             ci.cancel();
         }
@@ -45,7 +45,7 @@ public abstract class SheepEntityMixin extends Entity {
 
     @Inject(method = "setSheared", at = @At("HEAD"), cancellable = true)
     public void setSheared(boolean sheared, CallbackInfo ci) {
-        if (this.getWorld() instanceof ServerWorld) {
+        if (this.level() instanceof ServerLevel) {
             this.setAttached(MortarAttachments.SHEARED, sheared);
             ci.cancel();
         }
