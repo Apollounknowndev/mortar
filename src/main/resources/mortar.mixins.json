@@ -10,10 +10,10 @@
     "dye.ShulkerBoxBlockMixin",
     "dye.ShulkerMixin",
     "integration.ConduitBlockEntityMixin",
-    "integration.PointOfInterestTypesAccessor",
-    "worldgen.SurfaceBuilderMixin",
-    "worldgen.processor.BlockAgeMixin",
-    "worldgen.structure.OceanRuinMixin"
+    "integration.PoiTypesAccessor",
+    "worldgen.SurfaceSystemMixin",
+    "worldgen.processor.BlockAgeProcessorMixin",
+    "worldgen.structure.OceanRuinPieceMixin"
   ],
   "client": [
     "dye.SheetsMixin"

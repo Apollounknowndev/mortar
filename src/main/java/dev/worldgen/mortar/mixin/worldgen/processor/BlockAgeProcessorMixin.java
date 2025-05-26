@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(BlockAgeProcessor.class)
-public abstract class BlockAgeMixin {
+public abstract class BlockAgeProcessorMixin {
     @Final
     @Shadow
     private float mossiness;

@@ -3,7 +3,7 @@ package dev.worldgen.mortar.block;
 import dev.worldgen.mortar.Mortar;
 import dev.worldgen.mortar.block.set.DyedBlockSet;
 import dev.worldgen.mortar.block.set.GenericSet;
-import dev.worldgen.mortar.mixin.integration.PointOfInterestTypesAccessor;
+import dev.worldgen.mortar.mixin.integration.PoiTypesAccessor;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.core.Holder;
@@ -105,7 +105,7 @@ public interface MortarBlocks {
     Block SNAPDRAGON = register("snapdragon", new TallFlowerBlock(settings("snapdragon", LILAC)));
 
     static void init() {
-        Map<BlockState, Holder<PoiType>> poiStatesToTypes = PointOfInterestTypesAccessor.getPoiStatesToTypes();
+        Map<BlockState, Holder<PoiType>> poiStatesToTypes = PoiTypesAccessor.getPoiStatesToTypes();
         Holder<PoiType> home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.get(PoiTypes.HOME.location()).get();
         BEDS.stream().map(MortarBlocks::getBedHeads).forEach(bedHeads -> bedHeads.forEach(bedHead -> poiStatesToTypes.put(bedHead, home)));
 

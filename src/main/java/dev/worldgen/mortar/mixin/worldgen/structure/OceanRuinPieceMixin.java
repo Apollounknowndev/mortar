@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.List;
 
 @Mixin(OceanRuinPieces.OceanRuinPiece.class)
-public class OceanRuinMixin {
+public class OceanRuinPieceMixin {
     @ModifyReturnValue(method = "makeSettings", at = @At("RETURN"))
     private static StructurePlaceSettings mortar$addMortarBlocksProcessor(StructurePlaceSettings original) {
         return original.addProcessor(new RuleProcessor(List.of(

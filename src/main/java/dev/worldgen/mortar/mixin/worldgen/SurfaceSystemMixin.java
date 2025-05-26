@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SurfaceSystem.class)
-public abstract class SurfaceBuilderMixin {
+public abstract class SurfaceSystemMixin {
     @Shadow
     private static void makeBands(RandomSource random, BlockState[] terracottaBands, int minBandSize, BlockState state) {
         throw new AssertionError("Implemented via mixin");
