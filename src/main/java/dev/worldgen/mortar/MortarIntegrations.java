@@ -2,6 +2,7 @@ package dev.worldgen.mortar;
 
 import dev.worldgen.mortar.block.MortarBlocks;
 import dev.worldgen.mortar.item.MortarItems;
+import net.fabricmc.fabric.api.loot.v3.FabricLootTableBuilder;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.core.registries.Registries;
@@ -22,7 +23,7 @@ public class MortarIntegrations {
     public static void init() {
         LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
             if (key.equals(BuiltInLootTables.SHEPHERD_GIFT)) {
-                builder.modifyPools(pool -> MortarItems.WOOLS.forEach(item -> pool.add(LootItem.lootTableItem(item))));
+                ((FabricLootTableBuilder)builder).modifyPools(pool -> MortarItems.WOOLS.forEach(item -> pool.add(LootItem.lootTableItem(item))));
             }
 
             if (key.equals(BuiltInLootTables.SHEAR_SHEEP)) {

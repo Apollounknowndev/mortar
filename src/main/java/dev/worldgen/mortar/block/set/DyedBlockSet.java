@@ -1,13 +1,7 @@
 package dev.worldgen.mortar.block.set;
 
 import dev.worldgen.mortar.Mortar;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.stream.Stream;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
@@ -15,6 +9,13 @@ import net.minecraft.world.level.block.CandleCakeBlock;
 import net.minecraft.world.level.block.ConcretePowderBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 import static dev.worldgen.mortar.block.MortarBlockUtils.coloredSettings;
 import static dev.worldgen.mortar.block.MortarBlockUtils.rawRegister;
@@ -38,7 +39,7 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
             Block block = rawRegister(name, creator.apply(color, name, copy));
             blocks.add(block);
 
-            if (blockEntity != null) blockEntity.addSupportedBlock(block);
+            if (blockEntity != null) ((FabricBlockEntityType)blockEntity).addSupportedBlock(block);
         }
         return new DyedBlockSet(
             suffix,
