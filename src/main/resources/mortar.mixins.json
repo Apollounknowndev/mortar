@@ -5,6 +5,7 @@
     "dye.DispenseItemBehaviorMixin",
     "dye.DyeColorCreator",
     "dye.DyeColorMixin",
+    "dye.EquipmentAssetsMixin",
     "dye.MapBannerMixin",
     "dye.SheepMixin",
     "dye.ShulkerBoxBlockMixin",

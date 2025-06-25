@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dried_ghast"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "mortar:crafting_table/maroon_harness",
+      "mortar:crafting_table/scarlet_harness",
+      "mortar:crafting_table/amber_harness",
+      "mortar:crafting_table/pear_harness",
+      "mortar:crafting_table/pine_harness",
+      "mortar:crafting_table/slate_harness",
+      "mortar:crafting_table/lavender_harness",
+      "mortar:crafting_table/salmon_harness"
+    ]
+  }
+}

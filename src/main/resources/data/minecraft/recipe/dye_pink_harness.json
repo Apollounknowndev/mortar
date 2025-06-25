@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "building",
+  "group": "harness_dye",
+  "input": "#minecraft:harnesses",
+  "material": "minecraft:pink_dye",
+  "result": "minecraft:pink_harness"
+}

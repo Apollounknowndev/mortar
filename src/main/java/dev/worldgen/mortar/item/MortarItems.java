@@ -3,17 +3,8 @@ package dev.worldgen.mortar.item;
 import dev.worldgen.mortar.block.MortarBlocks;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BannerItem;
-import net.minecraft.world.item.BedItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.BundleItem;
-import net.minecraft.world.item.DyeItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.BundleContents;
-import net.minecraft.world.item.equipment.EquipmentAssets;
 import net.minecraft.world.item.equipment.Equippable;
 
 import static dev.worldgen.mortar.item.MortarItemUtils.*;
@@ -38,13 +29,7 @@ public interface MortarItems {
             key,
             settings -> new BlockItem(
                 MortarBlocks.CARPETS.match(color),
-                    blockName(settings).component(DataComponents.EQUIPPABLE, Equippable
-                    .builder(EquipmentSlot.BODY)
-                    .setEquipSound(SoundEvents.LLAMA_SWAG)
-                    .setAsset(ResourceKey.create(EquipmentAssets.ROOT_ID, key.location()))
-                    .setAllowedEntities(EntityType.LLAMA, EntityType.TRADER_LLAMA)
-                    .build()
-                )
+                settings.useBlockDescriptionPrefix().component(DataComponents.EQUIPPABLE, Equippable.llamaSwag(color))
             )
         );
     });
@@ -54,6 +39,12 @@ public interface MortarItems {
         register(key(color, "dye"), settings -> new DyeItem(color, settings))
     );
     DyedItemSet GLAZED_TERRACOTTAS = DyedItemSet.generic(MortarBlocks.GLAZED_TERRACOTTAS);
+    DyedItemSet HARNESSES = DyedItemSet.create(color ->
+        register(
+            key(color, "harness"),
+            settings -> new Item(settings.stacksTo(1).component(DataComponents.EQUIPPABLE, Equippable.harness(color)))
+        )
+    );
     DyedItemSet SHULKER_BOXES = DyedItemSet.create(color ->
         block(MortarBlocks.SHULKER_BOXES.match(color), color, "shulker_box", settings -> blockName(settings).stacksTo(1))
     );
