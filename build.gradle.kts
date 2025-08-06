@@ -1,7 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.0"
-    id("earth.terrarium.cloche") version "0.10.13"
-    id("me.modmuss50.mod-publish-plugin") version "0.8.4"
+    id("earth.terrarium.cloche") version "0.11.0"
 }
 
 repositories {
@@ -19,7 +18,7 @@ repositories {
 }
 
 group = "dev.worldgen.mortar"
-version = "3.1.0"
+version = "3.1.1"
 
 cloche {
     mappings {

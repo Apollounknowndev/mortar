@@ -13,6 +13,7 @@ public class MortarClient implements ClientModInitializer {
         MortarBlocks.STAINED_GLASSES.stream().forEach(block -> put(block, ChunkSectionLayer.TRANSLUCENT));
         MortarBlocks.STAINED_GLASS_PANES.stream().forEach(block -> put(block, ChunkSectionLayer.TRANSLUCENT));
         put(MortarBlocks.BLUE_AMARANTH, ChunkSectionLayer.CUTOUT);
+        put(MortarBlocks.POTTED_BLUE_AMARANTH, ChunkSectionLayer.CUTOUT);
         put(MortarBlocks.SNAPDRAGON, ChunkSectionLayer.CUTOUT);
     }
 
