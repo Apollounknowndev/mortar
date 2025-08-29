@@ -18,7 +18,7 @@ repositories {
 }
 
 group = "dev.worldgen.mortar"
-version = "3.1.1"
+version = "3.1.2"
 
 cloche {
     mappings {
@@ -34,6 +34,7 @@ cloche {
 
         author("Apollo")
         author("DawnKiro (Texture Artist)")
+        author("Kyrius (Texture Artist)")
         author("Ekansh (Texture Artist)")
         author("skxlor (Texture Artist)")
         author("bebebea_loste (Texture Artist)")
@@ -42,12 +43,12 @@ cloche {
     singleTarget {
         fabric {
             loaderVersion = "0.16.13"
-            minecraftVersion = "1.21.6"
+            minecraftVersion = "1.21.8"
             mixins.from(file("src/main/mortar.mixins.json"))
 
             dependencies {
-                fabricApi("0.128.0")
-                modRuntimeOnly("maven.modrinth:lithostitched:1.4.8-fabric-1.21.5")
+                fabricApi("0.132.0")
+                modRuntimeOnly("maven.modrinth:lithostitched:1.4.11-fabric-1.21.6")
             }
 
             includedClient()

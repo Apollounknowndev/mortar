@@ -25,7 +25,8 @@ There has been careful work done to ensure the new dyes are integrated as tightl
 ## Credits
 
 Thank you to all the people who have helped with texture work in this mod!
-- DawnKiro: Most non-dyed blocks, a handful of glazed terracottas and dyes
-- bebebea_loste: Three glazed terracottas and most dyes
-- skxlor: Base designs of three glazed terracottas
+- Kyrius: Most new chiseled bricks and glazed terracottas
+- DawnKiro: Some chiseled bricks, glazed terracottas, and dyes
+- bebebea_loste: Most dyes
+- skxlor: Base designs of old glazed terracottas
 - Ekansh: Blue Amaranth and Snapdragon flowers
