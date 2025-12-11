@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.0"
-    id("earth.terrarium.cloche") version "0.11.0"
+    id("earth.terrarium.cloche") version "0.16.20"
 }
 
 repositories {
@@ -18,7 +18,7 @@ repositories {
 }
 
 group = "dev.worldgen.mortar"
-version = "3.1.2"
+version = "3.1.3"
 
 cloche {
     mappings {
@@ -42,13 +42,13 @@ cloche {
 
     singleTarget {
         fabric {
-            loaderVersion = "0.16.13"
-            minecraftVersion = "1.21.8"
+            loaderVersion = "0.18.2"
+            minecraftVersion = "1.21.11"
             mixins.from(file("src/main/mortar.mixins.json"))
 
             dependencies {
-                fabricApi("0.132.0")
-                modRuntimeOnly("maven.modrinth:lithostitched:1.4.11-fabric-1.21.6")
+                fabricApi("0.139.4")
+                modRuntimeOnly("maven.modrinth:lithostitched:1.5.2+beta2-fabric-1.21.11")
             }
 
             includedClient()
@@ -61,7 +61,6 @@ cloche {
                 dependencies {
                     dependency {
                         modId = "lithostitched"
-                        required = true
                     }
                 }
 

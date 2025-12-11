@@ -6,7 +6,7 @@ import java.util.Map;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
 
@@ -14,7 +14,7 @@ public interface MortarMapDecorations {
     Map<DyeColor, Holder<MapDecorationType>> DYE_TO_DECORATION = new HashMap<>();
 
     private static void register(DyeColor color) {
-        ResourceLocation id = Mortar.id(color.getName() + "_banner");
+        Identifier id = Mortar.id(color.getName() + "_banner");
         Holder.Reference<MapDecorationType> decoration = Registry.registerForHolder(BuiltInRegistries.MAP_DECORATION_TYPE, id, new MapDecorationType(id, true, -1, false, true));
         DYE_TO_DECORATION.put(color, decoration);
     }

@@ -53,11 +53,6 @@ public interface MortarItems {
     DyedItemSet TERRACOTTAS = DyedItemSet.generic(MortarBlocks.TERRACOTTAS);
     DyedItemSet WOOLS = DyedItemSet.generic(MortarBlocks.WOOLS);
 
-    /*DyedItemSet HARNESSES = DyedItemSet.create(color -> register(
-        key(color, "harness"),
-        settings -> new Item(settings.maxCount(1))
-    ));*/
-
     static Item.Properties blockName(Item.Properties settings) {
         return settings.useBlockDescriptionPrefix();
     }

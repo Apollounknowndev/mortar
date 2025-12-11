@@ -6,7 +6,7 @@ import dev.worldgen.mortar.misc.MortarAttachments;
 import dev.worldgen.mortar.misc.MortarMapDecorations;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class Mortar implements ModInitializer {
 		MortarIntegrations.init();
 	}
 
-	public static ResourceLocation id(String name) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+	public static Identifier id(String name) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, name);
 	}
 }

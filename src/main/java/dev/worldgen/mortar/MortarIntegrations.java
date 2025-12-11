@@ -7,9 +7,9 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 
 public class MortarIntegrations {
-    private static final ResourceKey<LootTable> SHEEP_ENTITY = lootTable(ResourceLocation.withDefaultNamespace("entities/sheep"));
+    private static final ResourceKey<LootTable> SHEEP_ENTITY = lootTable(Identifier.withDefaultNamespace("entities/sheep"));
 
     public static void init() {
         LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
@@ -91,7 +91,7 @@ public class MortarIntegrations {
         );
     }
 
-    private static ResourceKey<LootTable> lootTable(ResourceLocation id) {
+    private static ResourceKey<LootTable> lootTable(Identifier id) {
         return ResourceKey.create(Registries.LOOT_TABLE, id);
     }
 }

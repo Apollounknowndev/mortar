@@ -6,7 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -33,7 +33,7 @@ public class MortarItemUtils {
 
     public static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> creator) {
         Item item = Registry.register(BuiltInRegistries.ITEM, key, creator.apply(settings(key)));
-        Item anchor = BuiltInRegistries.ITEM.getValue(getAnchorId(key.location()));
+        Item anchor = BuiltInRegistries.ITEM.getValue(getAnchorId(key.identifier()));
 
         ItemGroupEvents.MODIFY_ENTRIES_ALL.register((group, entries) -> {
             if (group.contains(anchor.getDefaultInstance())) {
@@ -44,7 +44,7 @@ public class MortarItemUtils {
         return item;
     }
 
-    private static ResourceLocation getAnchorId(ResourceLocation id) {
+    private static Identifier getAnchorId(Identifier id) {
         String path = id.getPath();
         path = path
             .replace("maroon", "brown")
@@ -55,6 +55,6 @@ public class MortarItemUtils {
             .replace("slate", "blue")
             .replace("lavender", "magenta")
             .replace("salmon", "pink");
-        return ResourceLocation.withDefaultNamespace(path);
+        return Identifier.withDefaultNamespace(path);
     }
 }

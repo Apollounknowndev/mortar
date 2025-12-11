@@ -96,7 +96,7 @@ public interface MortarBlocks {
 
     static void init() {
         Map<BlockState, Holder<PoiType>> poiStatesToTypes = PoiTypesAccessor.getPoiStatesToTypes();
-        Holder<PoiType> home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.get(PoiTypes.HOME.location()).get();
+        Holder<PoiType> home = BuiltInRegistries.POINT_OF_INTEREST_TYPE.get(PoiTypes.HOME.identifier()).get();
         BEDS.stream().map(MortarBlocks::getBedHeads).forEach(bedHeads -> bedHeads.forEach(bedHead -> poiStatesToTypes.put(bedHead, home)));
 
         FlammableBlockRegistry.getDefaultInstance().add(tag("wools"), 30, 60);
