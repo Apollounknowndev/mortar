@@ -36,7 +36,7 @@ public interface MortarItems {
     DyedItemSet CONCRETE_POWDERS = DyedItemSet.generic(MortarBlocks.CONCRETE_POWDERS);
     DyedItemSet CONCRETES = DyedItemSet.generic(MortarBlocks.CONCRETES);
     DyedItemSet DYES = DyedItemSet.create(color ->
-        register(key(color, "dye"), settings -> new DyeItem(color, settings))
+        register(key(color, "dye"), settings -> new DyeItem(settings.component(DataComponents.DYE, color)))
     );
     DyedItemSet GLAZED_TERRACOTTAS = DyedItemSet.generic(MortarBlocks.GLAZED_TERRACOTTAS);
     DyedItemSet HARNESSES = DyedItemSet.create(color ->

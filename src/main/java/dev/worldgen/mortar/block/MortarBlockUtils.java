@@ -1,7 +1,7 @@
 package dev.worldgen.mortar.block;
 
 import dev.worldgen.mortar.Mortar;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class MortarBlockUtils {
 
     public static Block buildingGroup(Block anchor, Block block) {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> entries.addAfter(anchor, block));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> entries.insertAfter(anchor, block));
         return block;
     }
 

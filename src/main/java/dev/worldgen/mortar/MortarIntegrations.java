@@ -1,16 +1,11 @@
 package dev.worldgen.mortar;
 
-import dev.worldgen.mortar.block.MortarBlocks;
 import dev.worldgen.mortar.item.MortarItems;
 import net.fabricmc.fabric.api.loot.v3.FabricLootTableBuilder;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.npc.villager.VillagerProfession;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -35,7 +30,7 @@ public class MortarIntegrations {
             }
         });
 
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories ->
+        /*TradeOfferHelper.registerVillagerOffers(VillagerProfession.CARTOGRAPHER, 4, factories ->
             MortarItems.BANNERS.forEach(item ->
                 factories.add(new VillagerTrades.ItemsForEmeralds(item, 3, 1, 12, 15))
             )
@@ -88,7 +83,7 @@ public class MortarIntegrations {
             MortarItems.DYES.forEach(item ->
                 builder.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL, new VillagerTrades.ItemsForEmeralds(item, 1, 3, 12, 1))
             )
-        );
+        );*/
     }
 
     private static ResourceKey<LootTable> lootTable(Identifier id) {

@@ -1,7 +1,7 @@
 package dev.worldgen.mortar.item;
 
 import dev.worldgen.mortar.Mortar;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -35,9 +35,9 @@ public class MortarItemUtils {
         Item item = Registry.register(BuiltInRegistries.ITEM, key, creator.apply(settings(key)));
         Item anchor = BuiltInRegistries.ITEM.getValue(getAnchorId(key.identifier()));
 
-        ItemGroupEvents.MODIFY_ENTRIES_ALL.register((group, entries) -> {
+        CreativeModeTabEvents.MODIFY_OUTPUT_ALL.register((group, entries) -> {
             if (group.contains(anchor.getDefaultInstance())) {
-                entries.addAfter(anchor, item);
+                entries.insertAfter(anchor, item);
             }
         });
 

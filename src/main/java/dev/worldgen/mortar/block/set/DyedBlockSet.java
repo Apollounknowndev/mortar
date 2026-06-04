@@ -39,7 +39,7 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
             Block block = rawRegister(name, creator.apply(color, name, copy));
             blocks.add(block);
 
-            if (blockEntity != null) ((FabricBlockEntityType)blockEntity).addSupportedBlock(block);
+            if (blockEntity != null) ((FabricBlockEntityType)blockEntity).addValidBlock(block);
         }
         return new DyedBlockSet(
             suffix,

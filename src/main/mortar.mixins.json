@@ -8,7 +8,6 @@
     "dye.EquipmentAssetsMixin",
     "dye.MapBannerMixin",
     "dye.SheepMixin",
-    "dye.ShulkerBoxBlockMixin",
     "dye.ShulkerMixin",
     "integration.ConduitBlockEntityMixin",
     "integration.PoiTypesAccessor",

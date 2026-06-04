@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class SheetsMixin {
     @Inject(
         method = {
-            "colorToShulkerMaterial",
-            "colorToResourceMaterial"
+            "colorToShulkerSprite",
+            "colorToResourceSprite"
         },
         at = @At("HEAD"),
         cancellable = true

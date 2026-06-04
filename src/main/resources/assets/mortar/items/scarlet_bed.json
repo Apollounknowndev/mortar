@@ -1,10 +1,73 @@
 {
   "model": {
-    "type": "minecraft:special",
-    "base": "mortar:item/scarlet_bed",
-    "model": {
-      "type": "minecraft:bed",
-      "texture": "mortar:scarlet"
-    }
+    "type": "minecraft:composite",
+    "models": [
+      {
+        "type": "minecraft:special",
+        "base": "mortar:item/scarlet_bed",
+        "model": {
+          "type": "minecraft:bed",
+          "part": "head",
+          "texture": "mortar:scarlet"
+        },
+        "transformation": {
+          "left_rotation": [
+            0,
+            -0.70710677,
+            0.70710677,
+            0
+          ],
+          "right_rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            0.99999994,
+            0.9999999,
+            0.9999999
+          ],
+          "translation": [
+            0.99999994,
+            0.5625,
+            0.99999994
+          ]
+        }
+      },
+      {
+        "type": "minecraft:special",
+        "base": "mortar:item/scarlet_bed",
+        "model": {
+          "type": "minecraft:bed",
+          "part": "foot",
+          "texture": "mortar:scarlet"
+        },
+        "transformation": {
+          "left_rotation": [
+            0,
+            -0.70710677,
+            0.70710677,
+            0
+          ],
+          "right_rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            0.99999994,
+            0.9999999,
+            0.9999999
+          ],
+          "translation": [
+            0.99999994,
+            0.5625,
+            -5.9604645e-8
+          ]
+        }
+      }
+    ]
   }
 }
