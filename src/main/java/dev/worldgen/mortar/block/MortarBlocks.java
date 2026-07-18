@@ -15,14 +15,15 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
+
 import java.util.List;
 import java.util.Map;
 
-import static dev.worldgen.mortar.block.MortarBlockUtils.register;
 import static dev.worldgen.mortar.block.MortarBlockUtils.*;
+import static dev.worldgen.mortar.block.MortarBlockUtils.register;
 import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colored;
 import static dev.worldgen.mortar.block.set.DyedBlockSet.BlockCreator.colorless;
 import static dev.worldgen.mortar.block.set.GenericSet.brickSet;
@@ -75,20 +76,20 @@ public interface MortarBlocks {
     Block QUARTZ_BRICK_SLAB = buildingGroup(QUARTZ_BRICK_STAIRS, slab("quartz_brick_slab", QUARTZ_BRICKS));
     Block QUARTZ_BRICK_WALL = buildingGroup(QUARTZ_BRICK_SLAB, wall("quartz_brick_wall", QUARTZ_BRICKS));
 
-    DyedBlockSet BANNERS = DyedBlockSet.create(colored(BannerBlock::new), "banner", WHITE_BANNER, BlockEntityType.BANNER);
-    DyedBlockSet BEDS = DyedBlockSet.create(colored(BedBlock::new), "bed", WHITE_BED, BlockEntityType.BED);
-    DyedBlockSet CANDLES = DyedBlockSet.create(colorless(CandleBlock::new), "candle", WHITE_CANDLE);
-    DyedBlockSet CANDLE_CAKES = DyedBlockSet.create(DyedBlockSet.BlockCreator.CANDLE_CAKE, "candle_cake", WHITE_CANDLE_CAKE);
-    DyedBlockSet CARPETS = DyedBlockSet.create(colored(WoolCarpetBlock::new), "carpet", WHITE_CARPET);
-    DyedBlockSet CONCRETES = DyedBlockSet.generic("concrete", WHITE_CONCRETE);
-    DyedBlockSet CONCRETE_POWDERS = DyedBlockSet.create(DyedBlockSet.BlockCreator.CONCRETE_POWDER, "concrete_powder", WHITE_CONCRETE_POWDER);
-    DyedBlockSet GLAZED_TERRACOTTAS = DyedBlockSet.create(colorless(GlazedTerracottaBlock::new), "glazed_terracotta", WHITE_GLAZED_TERRACOTTA);
-    DyedBlockSet SHULKER_BOXES = DyedBlockSet.create(colored(ShulkerBoxBlock::new), "shulker_box", WHITE_SHULKER_BOX, BlockEntityType.SHULKER_BOX);
-    DyedBlockSet STAINED_GLASSES = DyedBlockSet.create(colored(StainedGlassBlock::new), "stained_glass", WHITE_STAINED_GLASS);
-    DyedBlockSet STAINED_GLASS_PANES = DyedBlockSet.create(colored(StainedGlassPaneBlock::new), "stained_glass_pane", WHITE_STAINED_GLASS_PANE);
-    DyedBlockSet TERRACOTTAS = DyedBlockSet.generic("terracotta", WHITE_TERRACOTTA);
-    DyedBlockSet WALL_BANNERS = DyedBlockSet.create(colored(WallBannerBlock::new), "wall_banner", WHITE_WALL_BANNER, BlockEntityType.BANNER);
-    DyedBlockSet WOOLS = DyedBlockSet.generic("wool", WHITE_WOOL);
+    DyedBlockSet BANNERS = DyedBlockSet.create(colored(BannerBlock::new), "banner", BANNER.white(), BlockEntityTypes.BANNER);
+    DyedBlockSet BEDS = DyedBlockSet.create(colored(BedBlock::new), "bed", BED.white());
+    DyedBlockSet CANDLES = DyedBlockSet.create(colorless(CandleBlock::new), "candle", DYED_CANDLE.white());
+    DyedBlockSet CANDLE_CAKES = DyedBlockSet.create(DyedBlockSet.BlockCreator.CANDLE_CAKE, "candle_cake", DYED_CANDLE_CAKE.white());
+    DyedBlockSet CARPETS = DyedBlockSet.create(colored(WoolCarpetBlock::new), "carpet", CARPET.white());
+    DyedBlockSet CONCRETES = DyedBlockSet.generic("concrete", CONCRETE.white());
+    DyedBlockSet CONCRETE_POWDERS = DyedBlockSet.create(DyedBlockSet.BlockCreator.CONCRETE_POWDER, "concrete_powder", CONCRETE_POWDER.white());
+    DyedBlockSet GLAZED_TERRACOTTAS = DyedBlockSet.create(colorless(GlazedTerracottaBlock::new), "glazed_terracotta", GLAZED_TERRACOTTA.white());
+    DyedBlockSet SHULKER_BOXES = DyedBlockSet.create(colored(ShulkerBoxBlock::new), "shulker_box", DYED_SHULKER_BOX.white(), BlockEntityTypes.SHULKER_BOX);
+    DyedBlockSet STAINED_GLASSES = DyedBlockSet.create(colored(StainedGlassBlock::new), "stained_glass", STAINED_GLASS.white());
+    DyedBlockSet STAINED_GLASS_PANES = DyedBlockSet.create(colored(StainedGlassPaneBlock::new), "stained_glass_pane", STAINED_GLASS_PANE.white());
+    DyedBlockSet TERRACOTTAS = DyedBlockSet.generic("terracotta", DYED_TERRACOTTA.white());
+    DyedBlockSet WALL_BANNERS = DyedBlockSet.create(colored(WallBannerBlock::new), "wall_banner", WALL_BANNER.white(), BlockEntityTypes.BANNER);
+    DyedBlockSet WOOLS = DyedBlockSet.generic("wool", WOOL.white());
 
     Block BLUE_AMARANTH = register("blue_amaranth", new FlowerBlock(MobEffects.SPEED, 10, settings("blue_amaranth", CORNFLOWER)));
     Block POTTED_BLUE_AMARANTH = rawRegister("potted_blue_amaranth", new FlowerPotBlock(BLUE_AMARANTH, settings("potted_blue_amaranth", POTTED_CORNFLOWER)));

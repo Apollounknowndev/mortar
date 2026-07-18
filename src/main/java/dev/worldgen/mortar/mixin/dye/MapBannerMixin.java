@@ -1,6 +1,6 @@
 package dev.worldgen.mortar.mixin.dye;
 
-import dev.worldgen.mortar.misc.MortarDyes;
+import dev.worldgen.mortar.Mortar;
 import dev.worldgen.mortar.misc.MortarMapDecorations;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.DyeColor;
@@ -23,7 +23,7 @@ public class MapBannerMixin {
         cancellable = true
     )
     private void addMortarBannerDecorations(CallbackInfoReturnable<Holder<MapDecorationType>> cir) {
-        if (MortarDyes.contains(this.color)) {
+        if (Mortar.DYES.contains(this.color)) {
             cir.setReturnValue(MortarMapDecorations.DYE_TO_DECORATION.get(this.color));
         }
     }

@@ -3,69 +3,17 @@
     "type": "minecraft:composite",
     "models": [
       {
-        "type": "minecraft:special",
-        "base": "mortar:item/lavender_bed",
-        "model": {
-          "type": "minecraft:bed",
-          "part": "head",
-          "texture": "mortar:lavender"
-        },
-        "transformation": {
-          "left_rotation": [
-            0,
-            -0.70710677,
-            0.70710677,
-            0
-          ],
-          "right_rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "scale": [
-            0.99999994,
-            0.9999999,
-            0.9999999
-          ],
-          "translation": [
-            0.99999994,
-            0.5625,
-            0.99999994
-          ]
-        }
+        "type": "minecraft:model",
+        "model": "mortar:block/lavender_bed_head"
       },
       {
-        "type": "minecraft:special",
-        "base": "mortar:item/lavender_bed",
-        "model": {
-          "type": "minecraft:bed",
-          "part": "foot",
-          "texture": "mortar:lavender"
-        },
+        "type": "minecraft:model",
+        "model": "mortar:block/lavender_bed_foot",
         "transformation": {
-          "left_rotation": [
-            0,
-            -0.70710677,
-            0.70710677,
-            0
-          ],
-          "right_rotation": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "scale": [
-            0.99999994,
-            0.9999999,
-            0.9999999
-          ],
-          "translation": [
-            0.99999994,
-            0.5625,
-            -5.9604645e-8
-          ]
+          "left_rotation": [0, 0, 0, 1],
+          "right_rotation": [0, 0, 0, 1],
+          "scale": [1, 1, 1],
+          "translation": [0, 0, 1]
         }
       }
     ]

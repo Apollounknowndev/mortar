@@ -2,8 +2,6 @@
   "minVersion": "0.8",
   "package": "dev.worldgen.mortar.mixin",
   "mixins": [
-    "dye.DispenseItemBehaviorMixin",
-    "dye.DyeColorCreator",
     "dye.DyeColorMixin",
     "dye.EquipmentAssetsMixin",
     "dye.MapBannerMixin",

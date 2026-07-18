@@ -1,7 +1,6 @@
 package dev.worldgen.mortar.mixin.dye;
 
 import dev.worldgen.mortar.Mortar;
-import dev.worldgen.mortar.misc.MortarDyes;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
@@ -13,16 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Sheets.class)
 public class SheetsMixin {
     @Inject(
-        method = {
-            "colorToShulkerSprite",
-            "colorToResourceSprite"
-        },
+        method = "colorToShulkerSprite",
         at = @At("HEAD"),
         cancellable = true
     )
-    private static void fixMortarColorNamespace(DyeColor dyeColor, CallbackInfoReturnable<Identifier> cir) {
-        if (MortarDyes.contains(dyeColor)) {
-            cir.setReturnValue(Mortar.id(dyeColor.getName()));
+    private static void fixMortarColorNamespace(DyeColor color, CallbackInfoReturnable<Identifier> cir) {
+        if (Mortar.DYES.contains(color)) {
+            cir.setReturnValue(Mortar.id(color.getName()));
         }
     }
 }

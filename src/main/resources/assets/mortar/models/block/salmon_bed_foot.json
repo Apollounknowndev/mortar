@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/template_bed_foot",
+  "textures": {
+    "east": "mortar:block/salmon_bed_foot_east",
+    "south": "mortar:block/salmon_bed_foot_south",
+    "up": "mortar:block/salmon_bed_foot_up",
+    "west": "mortar:block/salmon_bed_foot_west"
+  }
+}

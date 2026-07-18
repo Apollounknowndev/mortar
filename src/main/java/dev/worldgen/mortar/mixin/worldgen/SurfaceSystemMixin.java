@@ -35,10 +35,10 @@ public abstract class SurfaceSystemMixin {
         for (int k = 0; j < random.nextIntBetweenInclusive(6, 12) && k < states.length; ++j, k += random.nextInt(16) + 4) {
             states[k] = MortarBlocks.TERRACOTTAS.salmon().defaultBlockState();
             if (k - 1 > 0 && random.nextBoolean()) {
-                states[k - 1] = Blocks.RED_TERRACOTTA.defaultBlockState();
+                states[k - 1] = Blocks.DYED_TERRACOTTA.red().defaultBlockState();
             }
             if (k + 1 >= states.length || !random.nextBoolean()) continue;
-            states[k + 1] = Blocks.RED_TERRACOTTA.defaultBlockState();
+            states[k + 1] = Blocks.DYED_TERRACOTTA.red().defaultBlockState();
         }
     }
 }

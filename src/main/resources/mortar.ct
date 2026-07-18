@@ -1,0 +1,11 @@
+classTweaker  v2  official
+
+extend-enum net/minecraft/world/item/DyeColor MAROON
+extend-enum net/minecraft/world/item/DyeColor SCARLET
+extend-enum net/minecraft/world/item/DyeColor AMBER
+extend-enum net/minecraft/world/item/DyeColor PEAR
+extend-enum net/minecraft/world/item/DyeColor PINE
+extend-enum net/minecraft/world/item/DyeColor SLATE
+extend-enum net/minecraft/world/item/DyeColor LAVENDER
+extend-enum net/minecraft/world/item/DyeColor SALMON
+

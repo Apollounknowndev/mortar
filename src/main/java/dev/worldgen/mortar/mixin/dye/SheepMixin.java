@@ -1,7 +1,6 @@
 package dev.worldgen.mortar.mixin.dye;
 
 import dev.worldgen.mortar.misc.MortarAttachments;
-import net.fabricmc.fabric.api.attachment.v1.AttachmentTarget;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -22,7 +21,7 @@ public abstract class SheepMixin extends Entity {
 
     @Inject(method = "getColor()Lnet/minecraft/world/item/DyeColor;", at = @At("HEAD"), cancellable = true)
     public void getColor(CallbackInfoReturnable<DyeColor> cir) {
-        DyeColor color = ((AttachmentTarget)this).getAttached(MortarAttachments.COLOR);
+        DyeColor color = this.getAttached(MortarAttachments.COLOR);
         if (color != null) {
             cir.setReturnValue(color);
         }
@@ -31,14 +30,14 @@ public abstract class SheepMixin extends Entity {
     @Inject(method = "setColor", at = @At("HEAD"), cancellable = true)
     public void setColor(DyeColor color, CallbackInfo ci) {
         if (this.level() instanceof ServerLevel) {
-            ((AttachmentTarget)this).setAttached(MortarAttachments.COLOR, color);
+            this.setAttached(MortarAttachments.COLOR, color);
             ci.cancel();
         }
     }
 
     @Inject(method = "isSheared", at = @At("HEAD"), cancellable = true)
     public void isSheared(CallbackInfoReturnable<Boolean> cir) {
-        Boolean sheared = ((AttachmentTarget)this).getAttached(MortarAttachments.SHEARED);
+        Boolean sheared = this.getAttached(MortarAttachments.SHEARED);
         if (sheared != null) {
             cir.setReturnValue(sheared);
         }
@@ -47,7 +46,7 @@ public abstract class SheepMixin extends Entity {
     @Inject(method = "setSheared", at = @At("HEAD"), cancellable = true)
     public void setSheared(boolean sheared, CallbackInfo ci) {
         if (this.level() instanceof ServerLevel) {
-            ((AttachmentTarget)this).setAttached(MortarAttachments.SHEARED, sheared);
+            this.setAttached(MortarAttachments.SHEARED, sheared);
             ci.cancel();
         }
     }

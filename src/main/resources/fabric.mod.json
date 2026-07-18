@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
+  "authors": [
+    "Apollo",
+    "DawnKiro (Texture Artist)",
+    "Kyrius (Texture Artist)",
+    "Ekansh (Texture Artist)",
+    "skxlor (Texture Artist)",
+    "bebebea_loste (Texture Artist)"
+  ],
+  "contact": {
+    "homepage": "${url}",
+    "sources": "${sources}"
+  },
+  "license": "MIT",
+  "icon": "pack.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.worldgen.mortar.Mortar"
+    ]
+  },
+  "mixins": [
+    "mortar.mixins.json"
+  ],
+  "accessWidener": "mortar.ct",
+  "depends": {
+    "fabricloader": ">=0.19",
+    "minecraft": "${minecraft}"
+  }
+}

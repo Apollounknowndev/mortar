@@ -1,7 +1,6 @@
 package dev.worldgen.mortar.block.set;
 
 import dev.worldgen.mortar.Mortar;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
@@ -19,7 +18,7 @@ import java.util.stream.Stream;
 
 import static dev.worldgen.mortar.block.MortarBlockUtils.coloredSettings;
 import static dev.worldgen.mortar.block.MortarBlockUtils.rawRegister;
-import static dev.worldgen.mortar.misc.MortarDyes.*;
+import static net.minecraft.world.item.DyeColor.*;
 
 public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber, Block pear, Block pine, Block slate, Block lavender, Block salmon) {
 
@@ -33,13 +32,13 @@ public record DyedBlockSet(String name, Block maroon, Block scarlet, Block amber
 
     public static DyedBlockSet create(BlockCreator creator, String suffix, Block copy, @Nullable BlockEntityType<?> blockEntity) {
         List<Block> blocks = new ArrayList<>();
-        for (DyeColor color : mortarValues()) {
+        for (DyeColor color : Mortar.DYES) {
             String name = color.getName() + "_" + suffix;
 
             Block block = rawRegister(name, creator.apply(color, name, copy));
             blocks.add(block);
 
-            if (blockEntity != null) ((FabricBlockEntityType)blockEntity).addValidBlock(block);
+            if (blockEntity != null) blockEntity.addValidBlock(block);
         }
         return new DyedBlockSet(
             suffix,

@@ -1,7 +1,7 @@
 package dev.worldgen.mortar.item;
 
+import dev.worldgen.mortar.Mortar;
 import dev.worldgen.mortar.block.set.DyedBlockSet;
-import dev.worldgen.mortar.misc.MortarDyes;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 
@@ -20,7 +20,7 @@ public record DyedItemSet(Item maroon, Item scarlet, Item amber, Item pear, Item
 
     public static DyedItemSet create(Function<DyeColor, Item> creator) {
         List<Item> items = new ArrayList<>();
-        for (DyeColor color : MortarDyes.mortarValues()) {
+        for (DyeColor color : Mortar.DYES) {
             Item item = creator.apply(color);
             items.add(item);
         }

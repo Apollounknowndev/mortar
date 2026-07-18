@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_bed_head",
+  "textures": {
+    "east": "mortar:block/lavender_bed_head_east",
+    "up": "mortar:block/lavender_bed_head_up",
+    "west": "mortar:block/lavender_bed_head_west"
+  }
+}

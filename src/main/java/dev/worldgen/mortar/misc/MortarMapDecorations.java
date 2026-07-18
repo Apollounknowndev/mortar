@@ -1,14 +1,15 @@
 package dev.worldgen.mortar.misc;
 
 import dev.worldgen.mortar.Mortar;
-import java.util.HashMap;
-import java.util.Map;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public interface MortarMapDecorations {
     Map<DyeColor, Holder<MapDecorationType>> DYE_TO_DECORATION = new HashMap<>();
@@ -20,6 +21,6 @@ public interface MortarMapDecorations {
     }
 
     static void init() {
-        MortarDyes.mortarValues().forEach(MortarMapDecorations::register);
+        Mortar.DYES.forEach(MortarMapDecorations::register);
     }
 }
